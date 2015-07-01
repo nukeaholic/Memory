@@ -104,9 +104,6 @@
     <None Include="Resources\Ireland.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Italy.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Luxembourg.png" />
   </ItemGroup>
   <ItemGroup>

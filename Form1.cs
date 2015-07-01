@@ -33,19 +33,26 @@ namespace Memory
         private void picBox_XX_onClick(object sender, EventArgs e)
         {
             PictureBox picBox = (PictureBox)sender;
-            MessageBox.Show(picBox.Name);
+            //MessageBox.Show(picBox.Image.n);
 
             ProcessDirectory(path);
+        
 
 
         }
+
+        private void btn_start_onClick(object sender, EventArgs e)
+        {
+            ProcessDirectory(path);
+        }
+
 
         public void ProcessDirectory(string targetDirectory)
         {
             // Process the list of files found in the directory. 
             string[] fileEntries = Directory.GetFiles(targetDirectory);
 
-            // shuffle fileEntries
+            MemoryHelp.Shuffle(fileEntries);
 
             int i = 0;
 
@@ -81,7 +88,7 @@ namespace Memory
                 }
             }
 
-            MemoryHelp.Shuffle(fileEntries);
+            
 	
 
             // Recurse into subdirectories of this directory. 
@@ -91,6 +98,8 @@ namespace Memory
 
             
         }
+
+        
 
         
     }
