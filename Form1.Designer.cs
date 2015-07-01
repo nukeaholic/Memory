@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Memory));
             this.picBox_00 = new System.Windows.Forms.PictureBox();
             this.picBox_12 = new System.Windows.Forms.PictureBox();
             this.picBox_22 = new System.Windows.Forms.PictureBox();
@@ -74,7 +73,6 @@
             // 
             this.picBox_00.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_00.Image = global::Memory.Properties.Resources.Austria;
             this.picBox_00.Location = new System.Drawing.Point(120, 70);
             this.picBox_00.Name = "picBox_00";
             this.picBox_00.Size = new System.Drawing.Size(200, 200);
@@ -87,7 +85,6 @@
             // 
             this.picBox_12.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_12.Image = global::Memory.Properties.Resources.Iceland;
             this.picBox_12.Location = new System.Drawing.Point(620, 320);
             this.picBox_12.Name = "picBox_12";
             this.picBox_12.Size = new System.Drawing.Size(200, 200);
@@ -100,7 +97,6 @@
             // 
             this.picBox_22.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_22.Image = global::Memory.Properties.Resources.Norway;
             this.picBox_22.Location = new System.Drawing.Point(620, 570);
             this.picBox_22.Name = "picBox_22";
             this.picBox_22.Size = new System.Drawing.Size(200, 200);
@@ -113,7 +109,6 @@
             // 
             this.picBox_13.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_13.Image = global::Memory.Properties.Resources.Italy;
             this.picBox_13.Location = new System.Drawing.Point(870, 320);
             this.picBox_13.Name = "picBox_13";
             this.picBox_13.Size = new System.Drawing.Size(200, 200);
@@ -126,7 +121,6 @@
             // 
             this.picBox_23.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_23.Image = global::Memory.Properties.Resources.Portugal;
             this.picBox_23.Location = new System.Drawing.Point(870, 570);
             this.picBox_23.Name = "picBox_23";
             this.picBox_23.Size = new System.Drawing.Size(200, 200);
@@ -139,7 +133,6 @@
             // 
             this.picBox_33.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_33.Image = global::Memory.Properties.Resources.UK;
             this.picBox_33.Location = new System.Drawing.Point(870, 820);
             this.picBox_33.Name = "picBox_33";
             this.picBox_33.Size = new System.Drawing.Size(200, 200);
@@ -152,7 +145,6 @@
             // 
             this.picBox_32.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_32.Image = global::Memory.Properties.Resources.Switzerland;
             this.picBox_32.Location = new System.Drawing.Point(620, 820);
             this.picBox_32.Name = "picBox_32";
             this.picBox_32.Size = new System.Drawing.Size(200, 200);
@@ -165,7 +157,6 @@
             // 
             this.picBox_31.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_31.Image = global::Memory.Properties.Resources.Sweden;
             this.picBox_31.Location = new System.Drawing.Point(370, 820);
             this.picBox_31.Name = "picBox_31";
             this.picBox_31.Size = new System.Drawing.Size(200, 200);
@@ -178,7 +169,6 @@
             // 
             this.picBox_21.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_21.Image = global::Memory.Properties.Resources.Netherlands;
             this.picBox_21.Location = new System.Drawing.Point(370, 570);
             this.picBox_21.Name = "picBox_21";
             this.picBox_21.Size = new System.Drawing.Size(200, 200);
@@ -191,7 +181,6 @@
             // 
             this.picBox_11.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_11.Image = ((System.Drawing.Image)(resources.GetObject("picBox_11.Image")));
             this.picBox_11.Location = new System.Drawing.Point(370, 320);
             this.picBox_11.Name = "picBox_11";
             this.picBox_11.Size = new System.Drawing.Size(200, 200);
@@ -204,7 +193,6 @@
             // 
             this.picBox_30.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_30.Image = global::Memory.Properties.Resources.Spain;
             this.picBox_30.Location = new System.Drawing.Point(120, 820);
             this.picBox_30.Name = "picBox_30";
             this.picBox_30.Size = new System.Drawing.Size(200, 200);
@@ -217,7 +205,6 @@
             // 
             this.picBox_20.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_20.Image = global::Memory.Properties.Resources.Luxembourg;
             this.picBox_20.Location = new System.Drawing.Point(120, 570);
             this.picBox_20.Name = "picBox_20";
             this.picBox_20.Size = new System.Drawing.Size(200, 200);
@@ -230,7 +217,6 @@
             // 
             this.picBox_10.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_10.Image = global::Memory.Properties.Resources.France;
             this.picBox_10.Location = new System.Drawing.Point(120, 320);
             this.picBox_10.Name = "picBox_10";
             this.picBox_10.Size = new System.Drawing.Size(200, 200);
@@ -243,7 +229,6 @@
             // 
             this.picBox_03.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_03.Image = global::Memory.Properties.Resources.Denmark;
             this.picBox_03.Location = new System.Drawing.Point(870, 70);
             this.picBox_03.Name = "picBox_03";
             this.picBox_03.Size = new System.Drawing.Size(200, 200);
@@ -256,7 +241,6 @@
             // 
             this.picBox_02.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_02.Image = global::Memory.Properties.Resources.Czech_Republic;
             this.picBox_02.Location = new System.Drawing.Point(620, 70);
             this.picBox_02.Name = "picBox_02";
             this.picBox_02.Size = new System.Drawing.Size(200, 200);
@@ -269,7 +253,6 @@
             // 
             this.picBox_01.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_01.Image = global::Memory.Properties.Resources.Belgium;
             this.picBox_01.Location = new System.Drawing.Point(370, 70);
             this.picBox_01.Name = "picBox_01";
             this.picBox_01.Size = new System.Drawing.Size(200, 200);
@@ -391,28 +374,34 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox picBox_00;
-        private System.Windows.Forms.PictureBox picBox_12;
-        private System.Windows.Forms.PictureBox picBox_22;
-        private System.Windows.Forms.PictureBox picBox_13;
-        private System.Windows.Forms.PictureBox picBox_23;
-        private System.Windows.Forms.PictureBox picBox_33;
-        private System.Windows.Forms.PictureBox picBox_32;
-        private System.Windows.Forms.PictureBox picBox_31;
-        private System.Windows.Forms.PictureBox picBox_21;
-        private System.Windows.Forms.PictureBox picBox_11;
-        private System.Windows.Forms.PictureBox picBox_30;
-        private System.Windows.Forms.PictureBox picBox_20;
-        private System.Windows.Forms.PictureBox picBox_10;
-        private System.Windows.Forms.PictureBox picBox_03;
-        private System.Windows.Forms.PictureBox picBox_02;
-        private System.Windows.Forms.PictureBox picBox_01;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_Turns;
         private System.Windows.Forms.TextBox txtBox_Turns;
         private System.Windows.Forms.Label lbl_Timer;
         private System.Windows.Forms.TextBox txtbox_Timer;
         private System.Windows.Forms.Button btn_Back;
+        public System.Windows.Forms.PictureBox picBox_00;
+        public System.Windows.Forms.PictureBox picBox_12;
+        public System.Windows.Forms.PictureBox picBox_22;
+        public System.Windows.Forms.PictureBox picBox_13;
+        public System.Windows.Forms.PictureBox picBox_23;
+        public System.Windows.Forms.PictureBox picBox_33;
+        public System.Windows.Forms.PictureBox picBox_32;
+        public System.Windows.Forms.PictureBox picBox_31;
+        public System.Windows.Forms.PictureBox picBox_21;
+        public System.Windows.Forms.PictureBox picBox_11;
+        public System.Windows.Forms.PictureBox picBox_30;
+        public System.Windows.Forms.PictureBox picBox_20;
+        public System.Windows.Forms.PictureBox picBox_10;
+        public System.Windows.Forms.PictureBox picBox_03;
+        public System.Windows.Forms.PictureBox picBox_02;
+        private System.Windows.Forms.PictureBox picBox_01;
+
+        public System.Windows.Forms.PictureBox PicBox_01
+        {
+            get { return picBox_01; }
+            set { picBox_01 = value; }
+        }
 
     }
 }
