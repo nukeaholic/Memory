@@ -57,11 +57,12 @@ namespace Memory
             int i = 0;
 
             List<PictureBox>  picBoxes = new List<PictureBox>();
+
+
             
             picBoxes.Add(picBox_00);
             picBoxes.Add(picBox_01);
             picBoxes.Add(picBox_02);
-
             picBoxes.Add(picBox_03);
 
             picBoxes.Add(picBox_10);
