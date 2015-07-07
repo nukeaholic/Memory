@@ -11,11 +11,6 @@ namespace Memory
 {
     public static class MemoryHelp
     {
-
-        
-        
-        
-        
         // Insert logic for processing found files here. 
         public static void ProcessFile(PictureBox picBox, string path)
         {
