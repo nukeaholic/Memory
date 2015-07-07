@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_menu = new System.Windows.Forms.Panel();
             this.btn_Back = new System.Windows.Forms.Button();
             this.lbl_Turns = new System.Windows.Forms.Label();
             this.txtBox_Turns = new System.Windows.Forms.TextBox();
             this.lbl_Timer = new System.Windows.Forms.Label();
             this.txtbox_Timer = new System.Windows.Forms.TextBox();
-            this.btn_Start = new System.Windows.Forms.Button();
             this.picBox_01 = new System.Windows.Forms.PictureBox();
             this.picBox_02 = new System.Windows.Forms.PictureBox();
             this.picBox_03 = new System.Windows.Forms.PictureBox();
@@ -51,7 +50,7 @@
             this.picBox_22 = new System.Windows.Forms.PictureBox();
             this.picBox_12 = new System.Windows.Forms.PictureBox();
             this.picBox_00 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_02)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_03)).BeginInit();
@@ -70,18 +69,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBox_00)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnl_menu
             // 
-            this.panel1.Controls.Add(this.btn_Start);
-            this.panel1.Controls.Add(this.btn_Back);
-            this.panel1.Controls.Add(this.lbl_Turns);
-            this.panel1.Controls.Add(this.txtBox_Turns);
-            this.panel1.Controls.Add(this.lbl_Timer);
-            this.panel1.Controls.Add(this.txtbox_Timer);
-            this.panel1.Location = new System.Drawing.Point(1190, 70);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(217, 750);
-            this.panel1.TabIndex = 16;
+            this.pnl_menu.Controls.Add(this.btn_Back);
+            this.pnl_menu.Controls.Add(this.lbl_Turns);
+            this.pnl_menu.Controls.Add(this.txtBox_Turns);
+            this.pnl_menu.Controls.Add(this.lbl_Timer);
+            this.pnl_menu.Controls.Add(this.txtbox_Timer);
+            this.pnl_menu.Location = new System.Drawing.Point(1190, 70);
+            this.pnl_menu.Name = "pnl_menu";
+            this.pnl_menu.Size = new System.Drawing.Size(217, 750);
+            this.pnl_menu.TabIndex = 16;
             // 
             // btn_Back
             // 
@@ -135,16 +133,6 @@
             this.txtbox_Timer.TabIndex = 0;
             this.txtbox_Timer.Text = "00:00";
             this.txtbox_Timer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btn_Start
-            // 
-            this.btn_Start.Location = new System.Drawing.Point(69, 299);
-            this.btn_Start.Name = "btn_Start";
-            this.btn_Start.Size = new System.Drawing.Size(75, 23);
-            this.btn_Start.TabIndex = 5;
-            this.btn_Start.Text = "Spiel Starten";
-            this.btn_Start.UseVisualStyleBackColor = true;
-            this.btn_Start.Click += new System.EventHandler(this.btn_start_onClick);
             // 
             // picBox_01
             // 
@@ -344,7 +332,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1428, 1064);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnl_menu);
             this.Controls.Add(this.picBox_01);
             this.Controls.Add(this.picBox_02);
             this.Controls.Add(this.picBox_03);
@@ -363,8 +351,8 @@
             this.Controls.Add(this.picBox_00);
             this.Name = "frm_Memory";
             this.Text = "Memory";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnl_menu.ResumeLayout(false);
+            this.pnl_menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_01)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_02)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_03)).EndInit();
@@ -387,7 +375,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnl_menu;
         private System.Windows.Forms.Label lbl_Turns;
         private System.Windows.Forms.TextBox txtBox_Turns;
         private System.Windows.Forms.Label lbl_Timer;
@@ -408,8 +396,7 @@
         public System.Windows.Forms.PictureBox picBox_10;
         public System.Windows.Forms.PictureBox picBox_03;
         public System.Windows.Forms.PictureBox picBox_02;
-        private System.Windows.Forms.PictureBox picBox_01;
-        private System.Windows.Forms.Button btn_Start;
+        public System.Windows.Forms.PictureBox picBox_01;
 
         public System.Windows.Forms.PictureBox PicBox_01
         {
