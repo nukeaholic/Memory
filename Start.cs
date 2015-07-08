@@ -24,15 +24,11 @@ namespace Memory
         
         private void btn_Start_onClick(object sender, EventArgs e)
         {
-
-            frm_Memory frm_Main = new frm_Memory();
+            frm_Memory frm_Main = new frm_Memory(this);
             
             frm_Main.Visible = true;
 
             this.Visible = false;
-
-           // frm_Main.ProcessDirectory(path);
-
         }
 
         private void btn_quit_start_onClick(object sender, EventArgs e)

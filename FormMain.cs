@@ -22,6 +22,7 @@ namespace Memory
         private string path = "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources";
         private Dictionary<PictureBox, string> Feld = new Dictionary<PictureBox, string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
+        private frm_Start frm_Start;
 
         protected override void OnLoad(EventArgs e)
         {
@@ -30,19 +31,17 @@ namespace Memory
         }
 
 
-        public frm_Memory()
+        public frm_Memory(frm_Start frm_Start)
         {
             InitializeComponent();
+            this.frm_Start = frm_Start;
 
         }
 
         private void btn_Back_OnClick(object sender, EventArgs e)
         {
-            frm_Start frm_Start = new frm_Start();
-            
             frm_Start.Visible = true;
-
-            this.Visible = false;
+            this.Close();
         }
 
         private void picBox_XX_onClick(object sender, EventArgs e)
@@ -52,12 +51,9 @@ namespace Memory
 
         private void btn_quit_main_onClick(object sender, EventArgs e)
         {
-
-
-            //frm_Start frm_Start = new frm_Start();
-            //frm_Start.Close();
+            //frm_Start frm_start = new frm_Start();
+            frm_Start.Close();
             this.Close();
-            
         }
 
         public void ProcessDirectory(string targetDirectory)
