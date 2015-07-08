@@ -50,6 +50,7 @@
             this.picBox_22 = new System.Windows.Forms.PictureBox();
             this.picBox_12 = new System.Windows.Forms.PictureBox();
             this.picBox_00 = new System.Windows.Forms.PictureBox();
+            this.btn_quit_main = new System.Windows.Forms.Button();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_02)).BeginInit();
@@ -71,6 +72,7 @@
             // 
             // pnl_menu
             // 
+            this.pnl_menu.Controls.Add(this.btn_quit_main);
             this.pnl_menu.Controls.Add(this.btn_Back);
             this.pnl_menu.Controls.Add(this.lbl_Turns);
             this.pnl_menu.Controls.Add(this.txtBox_Turns);
@@ -327,6 +329,16 @@
             this.picBox_00.TabStop = false;
             this.picBox_00.Click += new System.EventHandler(this.picBox_XX_onClick);
             // 
+            // btn_quit_main
+            // 
+            this.btn_quit_main.Location = new System.Drawing.Point(69, 445);
+            this.btn_quit_main.Name = "btn_quit_main";
+            this.btn_quit_main.Size = new System.Drawing.Size(75, 23);
+            this.btn_quit_main.TabIndex = 5;
+            this.btn_quit_main.Text = "Beenden";
+            this.btn_quit_main.UseVisualStyleBackColor = true;
+            this.btn_quit_main.Click += new System.EventHandler(this.btn_quit_main_onClick);
+            // 
             // frm_Memory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,6 +409,7 @@
         public System.Windows.Forms.PictureBox picBox_03;
         public System.Windows.Forms.PictureBox picBox_02;
         public System.Windows.Forms.PictureBox picBox_01;
+        private System.Windows.Forms.Button btn_quit_main;
 
         public System.Windows.Forms.PictureBox PicBox_01
         {

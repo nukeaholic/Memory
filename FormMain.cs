@@ -17,6 +17,8 @@ namespace Memory
     public partial class frm_Memory : Form
     {
 
+        
+
         private string path = "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources";
         private Dictionary<PictureBox, string> Feld = new Dictionary<PictureBox, string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
@@ -36,12 +38,26 @@ namespace Memory
 
         private void btn_Back_OnClick(object sender, EventArgs e)
         {
-            this.Close();
+            frm_Start frm_Start = new frm_Start();
+            
+            frm_Start.Visible = true;
+
+            this.Visible = false;
         }
 
         private void picBox_XX_onClick(object sender, EventArgs e)
         {
             PictureBox picBox = (PictureBox)sender;
+        }
+
+        private void btn_quit_main_onClick(object sender, EventArgs e)
+        {
+
+
+            //frm_Start frm_Start = new frm_Start();
+            //frm_Start.Close();
+            this.Close();
+            
         }
 
         public void ProcessDirectory(string targetDirectory)
@@ -97,5 +113,7 @@ namespace Memory
                 ProcessDirectory(subdirectory);
 
         }
+
+        
     }
 }
