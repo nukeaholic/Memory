@@ -34,9 +34,9 @@
             // 
             // btn_Start
             // 
-            this.btn_Start.Location = new System.Drawing.Point(847, 365);
+            this.btn_Start.Location = new System.Drawing.Point(108, 416);
             this.btn_Start.Name = "btn_Start";
-            this.btn_Start.Size = new System.Drawing.Size(75, 23);
+            this.btn_Start.Size = new System.Drawing.Size(456, 101);
             this.btn_Start.TabIndex = 6;
             this.btn_Start.Text = "Spiel Starten";
             this.btn_Start.UseVisualStyleBackColor = true;
@@ -44,9 +44,9 @@
             // 
             // btn_quit_start
             // 
-            this.btn_quit_start.Location = new System.Drawing.Point(847, 451);
+            this.btn_quit_start.Location = new System.Drawing.Point(108, 523);
             this.btn_quit_start.Name = "btn_quit_start";
-            this.btn_quit_start.Size = new System.Drawing.Size(75, 23);
+            this.btn_quit_start.Size = new System.Drawing.Size(456, 101);
             this.btn_quit_start.TabIndex = 7;
             this.btn_quit_start.Text = "Beenden";
             this.btn_quit_start.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 678);
+            this.ClientSize = new System.Drawing.Size(662, 636);
             this.Controls.Add(this.btn_quit_start);
             this.Controls.Add(this.btn_Start);
             this.Name = "frm_Start";

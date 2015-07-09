@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnl_menu = new System.Windows.Forms.Panel();
+            this.btn_quit_main = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
             this.lbl_Turns = new System.Windows.Forms.Label();
             this.txtBox_Turns = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.picBox_22 = new System.Windows.Forms.PictureBox();
             this.picBox_12 = new System.Windows.Forms.PictureBox();
             this.picBox_00 = new System.Windows.Forms.PictureBox();
-            this.btn_quit_main = new System.Windows.Forms.Button();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_02)).BeginInit();
@@ -83,11 +83,21 @@
             this.pnl_menu.Size = new System.Drawing.Size(217, 750);
             this.pnl_menu.TabIndex = 16;
             // 
+            // btn_quit_main
+            // 
+            this.btn_quit_main.Location = new System.Drawing.Point(48, 430);
+            this.btn_quit_main.Name = "btn_quit_main";
+            this.btn_quit_main.Size = new System.Drawing.Size(143, 48);
+            this.btn_quit_main.TabIndex = 5;
+            this.btn_quit_main.Text = "Beenden";
+            this.btn_quit_main.UseVisualStyleBackColor = true;
+            this.btn_quit_main.Click += new System.EventHandler(this.btn_quit_main_onClick);
+            // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(69, 374);
+            this.btn_Back.Location = new System.Drawing.Point(48, 361);
             this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(75, 23);
+            this.btn_Back.Size = new System.Drawing.Size(143, 48);
             this.btn_Back.TabIndex = 4;
             this.btn_Back.Text = "Zurück";
             this.btn_Back.UseVisualStyleBackColor = true;
@@ -328,16 +338,6 @@
             this.picBox_00.TabIndex = 0;
             this.picBox_00.TabStop = false;
             this.picBox_00.Click += new System.EventHandler(this.picBox_XX_onClick);
-            // 
-            // btn_quit_main
-            // 
-            this.btn_quit_main.Location = new System.Drawing.Point(69, 445);
-            this.btn_quit_main.Name = "btn_quit_main";
-            this.btn_quit_main.Size = new System.Drawing.Size(75, 23);
-            this.btn_quit_main.TabIndex = 5;
-            this.btn_quit_main.Text = "Beenden";
-            this.btn_quit_main.UseVisualStyleBackColor = true;
-            this.btn_quit_main.Click += new System.EventHandler(this.btn_quit_main_onClick);
             // 
             // frm_Memory
             // 

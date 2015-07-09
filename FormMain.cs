@@ -24,6 +24,8 @@ namespace Memory
         private List<PictureBox> picboxes = new List<PictureBox>();
         private frm_Start frm_Start;
 
+        
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -51,7 +53,6 @@ namespace Memory
 
         private void btn_quit_main_onClick(object sender, EventArgs e)
         {
-            //frm_Start frm_start = new frm_Start();
             frm_Start.Close();
             this.Close();
         }
@@ -99,6 +100,13 @@ namespace Memory
             {
                 Feld.Add(picboxes[i], fileEntries[i]);
                 MemoryHelp.ProcessFile((PictureBox)picboxes[i], fileEntries[i]);
+                
+                
+                using (Font myFont = new Font("Arial", 14))
+                {
+                    PaintEventArgs e;
+                    e.Graphics.DrawString(fileEntries[i], myFont, Brushes.Green, new Point(2, 2));
+                }
                 i++;
             }
 
