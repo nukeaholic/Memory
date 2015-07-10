@@ -104,7 +104,7 @@ namespace Memory
 
                 using (Font myFont = new Font("Arial", 14))
                 {
-                    f.Graphics.DrawString(fileEntries[i], myFont, Brushes.Green, new Point(2, 2));
+                    f.Graphics.DrawString(fileEntries[i], myFont, Brushes.Black, new Point(2, 2));
                 }
                 i++;
             }
