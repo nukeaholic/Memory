@@ -23,7 +23,7 @@ namespace Memory
         private Dictionary<PictureBox, string> Feld = new Dictionary<PictureBox, string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
         private frm_Start frm_Start;
-
+        private PaintEventArgs f;
         
 
         protected override void OnLoad(EventArgs e)
@@ -91,7 +91,7 @@ namespace Memory
 
             MemoryHelp.Shuffle(fileEntries);
 
-            //loop über fileEntries as pfad
+            // loop über fileEntries as pfad
             // Erstellung von Dict
             //  -> Key Picturebox[i]
             //  -> Value pfad
@@ -100,12 +100,11 @@ namespace Memory
             {
                 Feld.Add(picboxes[i], fileEntries[i]);
                 MemoryHelp.ProcessFile((PictureBox)picboxes[i], fileEntries[i]);
-                
-                
+
+
                 using (Font myFont = new Font("Arial", 14))
                 {
-                    PaintEventArgs e;
-                    e.Graphics.DrawString(fileEntries[i], myFont, Brushes.Green, new Point(2, 2));
+                    f.Graphics.DrawString(fileEntries[i], myFont, Brushes.Green, new Point(2, 2));
                 }
                 i++;
             }
@@ -117,6 +116,8 @@ namespace Memory
                 ProcessDirectory(subdirectory);
 
         }
+
+
 
         
     }
