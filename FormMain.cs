@@ -23,7 +23,7 @@ namespace Memory
         private Dictionary<PictureBox, string> Feld = new Dictionary<PictureBox, string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
         private frm_Start frm_Start;
-        private PaintEventArgs f;
+        //private PaintEventArgs f;
         
 
         protected override void OnLoad(EventArgs e)
@@ -37,7 +37,6 @@ namespace Memory
         {
             InitializeComponent();
             this.frm_Start = frm_Start;
-
         }
 
         private void btn_Back_OnClick(object sender, EventArgs e)
@@ -109,16 +108,11 @@ namespace Memory
                 i++;
             }
 
-
             // Recurse into subdirectories of this directory. 
             string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
             foreach (string subdirectory in subdirectoryEntries)
                 ProcessDirectory(subdirectory);
 
         }
-
-
-
-        
     }
 }
