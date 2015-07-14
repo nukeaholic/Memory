@@ -25,7 +25,7 @@ namespace Memory
         private frm_Start frm_Start;
         //private PaintEventArgs f;
         
-
+        //On Load
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -39,23 +39,24 @@ namespace Memory
             this.frm_Start = frm_Start;
         }
 
+        //btn_BACK
         private void btn_Back_OnClick(object sender, EventArgs e)
         {
             frm_Start.Visible = true;
             this.Close();
-        }
+        }        
 
-        private void picBox_XX_onClick(object sender, EventArgs e)
-        {
-            PictureBox picBox = (PictureBox)sender;
-        }
-
+        //btn_QUIT
         private void btn_quit_main_onClick(object sender, EventArgs e)
         {
             frm_Start.Close();
             this.Close();
         }
 
+        
+
+
+        //Picboxen abfüllen
         public void ProcessDirectory(string targetDirectory)
         {
 
@@ -86,8 +87,7 @@ namespace Memory
             picboxes.Add(picBox_31);
             picboxes.Add(picBox_32);
             picboxes.Add(picBox_33);
-
-
+  
             MemoryHelp.Shuffle(fileEntries);
 
             // loop über fileEntries as pfad
@@ -100,11 +100,9 @@ namespace Memory
                 Feld.Add(picboxes[i], fileEntries[i]);
                 MemoryHelp.ProcessFile((PictureBox)picboxes[i], fileEntries[i]);
 
+                picboxes[i].Tag = fileEntries[i];
+                picboxes[i].Invalidate();
 
-                using (Font myFont = new Font("Arial", 14))
-                {
-                    f.Graphics.DrawString(fileEntries[i], myFont, Brushes.Black, new Point(2, 2));
-                }
                 i++;
             }
 
@@ -114,5 +112,27 @@ namespace Memory
                 ProcessDirectory(subdirectory);
 
         }
+
+        //picBox_XX_PAINT
+        private void picBox_XX_Paint(object sender, PaintEventArgs e)
+        {
+            PictureBox picBox = (PictureBox)sender;
+            string name = picBox.Tag.ToString();
+
+            Console.WriteLine("*********************"+name);
+
+            using (Font myFont = new Font("Arial", 14))
+            {
+                e.Graphics.DrawString(name, myFont, Brushes.Black, new Point(2, 2));
+            }
+        }
+
+        //picBox_XX_onCLICK
+        private void picBox_XX_onClick(object sender, EventArgs e)
+        {
+            PictureBox picBox = (PictureBox)sender;
+        }
+
+        
     }
 }

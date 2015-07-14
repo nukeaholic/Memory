@@ -157,6 +157,7 @@
             this.picBox_01.TabIndex = 15;
             this.picBox_01.TabStop = false;
             this.picBox_01.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_01.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_02
             // 
@@ -170,6 +171,7 @@
             this.picBox_02.TabStop = false;
             this.picBox_02.Tag = "";
             this.picBox_02.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_02.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_03
             // 
@@ -182,6 +184,7 @@
             this.picBox_03.TabIndex = 13;
             this.picBox_03.TabStop = false;
             this.picBox_03.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_03.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_10
             // 
@@ -194,6 +197,7 @@
             this.picBox_10.TabIndex = 12;
             this.picBox_10.TabStop = false;
             this.picBox_10.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_10.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_20
             // 
@@ -206,6 +210,7 @@
             this.picBox_20.TabIndex = 11;
             this.picBox_20.TabStop = false;
             this.picBox_20.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_20.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_30
             // 
@@ -218,6 +223,7 @@
             this.picBox_30.TabIndex = 10;
             this.picBox_30.TabStop = false;
             this.picBox_30.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_30.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_11
             // 
@@ -230,6 +236,7 @@
             this.picBox_11.TabIndex = 9;
             this.picBox_11.TabStop = false;
             this.picBox_11.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_11.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_21
             // 
@@ -242,6 +249,7 @@
             this.picBox_21.TabIndex = 8;
             this.picBox_21.TabStop = false;
             this.picBox_21.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_21.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_31
             // 
@@ -254,6 +262,7 @@
             this.picBox_31.TabIndex = 7;
             this.picBox_31.TabStop = false;
             this.picBox_31.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_31.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_32
             // 
@@ -266,6 +275,7 @@
             this.picBox_32.TabIndex = 6;
             this.picBox_32.TabStop = false;
             this.picBox_32.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_32.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_33
             // 
@@ -278,6 +288,7 @@
             this.picBox_33.TabIndex = 5;
             this.picBox_33.TabStop = false;
             this.picBox_33.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_33.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_23
             // 
@@ -290,6 +301,7 @@
             this.picBox_23.TabIndex = 4;
             this.picBox_23.TabStop = false;
             this.picBox_23.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_23.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_13
             // 
@@ -302,6 +314,7 @@
             this.picBox_13.TabIndex = 3;
             this.picBox_13.TabStop = false;
             this.picBox_13.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_13.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_22
             // 
@@ -314,6 +327,7 @@
             this.picBox_22.TabIndex = 2;
             this.picBox_22.TabStop = false;
             this.picBox_22.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_22.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_12
             // 
@@ -326,6 +340,7 @@
             this.picBox_12.TabIndex = 1;
             this.picBox_12.TabStop = false;
             this.picBox_12.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_12.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // picBox_00
             // 
@@ -338,6 +353,7 @@
             this.picBox_00.TabIndex = 0;
             this.picBox_00.TabStop = false;
             this.picBox_00.Click += new System.EventHandler(this.picBox_XX_onClick);
+            this.picBox_00.Paint += new System.Windows.Forms.PaintEventHandler(this.picBox_XX_Paint);
             // 
             // frm_Memory
             // 
