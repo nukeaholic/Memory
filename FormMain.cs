@@ -95,15 +95,30 @@ namespace Memory
             //  -> Key Picturebox[i]
             //  -> Value pfad
 
+            //bool flip = true;
+
             for (int i = 0; i < fileEntries.Length; )
             {
-                Feld.Add(picboxes[i], fileEntries[i]);
+                //if (flip == true)
+                //{
+                //    Feld.Add(picboxes[i], fileEntries[i]);
+                //    MemoryHelp.ProcessFile((PictureBox)picboxes[i], fileEntries[i]);
+                //    flip = false;
+                //}
+                //else
+                //{
+                //    picboxes[i].Tag = fileEntries[i-1];
+                //    picboxes[i].Invalidate();
+                //    flip = true;
+                //}
+
+                //Feld.Add(picboxes[i], fileEntries[i]);
                 MemoryHelp.ProcessFile((PictureBox)picboxes[i], fileEntries[i]);
 
-                picboxes[i].Tag = fileEntries[i];
-                picboxes[i].Invalidate();
-
-                i++;
+                picboxes[i+1].Tag = fileEntries[i+1];
+                picboxes[i+1].Invalidate();
+                i = i+2;
+                
             }
 
             // Recurse into subdirectories of this directory. 
