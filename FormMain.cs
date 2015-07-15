@@ -20,10 +20,27 @@ namespace Memory
         
 
         private string path = "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources";
-        private Dictionary<PictureBox, string> Feld = new Dictionary<PictureBox, string>();
+        //private Dictionary<PictureBox, string> Feld = new Dictionary<PictureBox, string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
         private frm_Start frm_Start;
-        //private PaintEventArgs f;
+        private List <Array> flaggen = new List<Array>();
+
+        private string[,] austria = new string[1, 2] { { "austria", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Austria.png" } };
+        private string[,] belgium = new string[1, 2] { { "belgium", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Belgium.png" } };
+        private string[,] czech = new string[1, 2] { { "czech republic", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Czech Republic.png.png" } };
+        private string[,] denmark = new string[1, 2] { { "denmark", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\denmark.png" } };
+        private string[,] france = new string[1, 2] { { "france", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\france.png" } };
+        private string[,] germany = new string[1, 2] { { "germany", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\germany.png" } };
+        private string[,] iceland = new string[1, 2] { { "iceland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\iceland.png" } };
+        private string[,] ireland = new string[1, 2] { { "ireland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\ireland.png" } };
+        private string[,] luxembourg = new string[1, 2] { { "luxembourg", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\luxembourg.png" } };
+        private string[,] netherlands = new string[1, 2] { { "netherlands", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\netherlands.png" } };
+        private string[,] norway = new string[1, 2] { { "norway", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\norway.png" } };
+        private string[,] portugal = new string[1, 2] { { "portugal", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\portugal.png" } };
+        private string[,] spain = new string[1, 2] { { "spain", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\spain.png" } };
+        private string[,] sweden = new string[1, 2] { { "sweden", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\sweden.png" } };
+        private string[,] switzerand = new string[1, 2] { { "switzerand", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\switzerand.png" } };
+        private string[,] uk = new string[1, 2] { { "united kingdom", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Portugal.png" } };
         
         //On Load
         protected override void OnLoad(EventArgs e)
@@ -63,10 +80,32 @@ namespace Memory
 
 
             // Process the list of files found in the directory. 
-            string[] fileEntries = Directory.GetFiles(targetDirectory);
 
+            //string[] fileEntries = Directory.GetFiles(targetDirectory);
+
+            
+            
+            //Flaggen in Liste
+
+            flaggen.Add(austria);
+            flaggen.Add(belgium);
+            flaggen.Add(czech);
+            flaggen.Add(denmark);
+            flaggen.Add(france);
+            flaggen.Add(germany);
+            flaggen.Add(iceland);
+            flaggen.Add(ireland);
+            flaggen.Add(luxembourg);
+            flaggen.Add(netherlands);
+            flaggen.Add(norway);
+            flaggen.Add(portugal);
+            flaggen.Add(spain);
+            flaggen.Add(sweden);
+            flaggen.Add(switzerand);
+            flaggen.Add(uk);
+
+            
             // Pictureboxes in Liste
-
 
             picboxes.Add(picBox_00);
             picboxes.Add(picBox_01);
@@ -88,34 +127,25 @@ namespace Memory
             picboxes.Add(picBox_32);
             picboxes.Add(picBox_33);
   
-            MemoryHelp.Shuffle(fileEntries);
+            MemoryHelp.Shuffle(flaggen);
 
             // loop über fileEntries as pfad
             // Erstellung von Dict
             //  -> Key Picturebox[i]
             //  -> Value pfad
 
-            //bool flip = true;
-
-            for (int i = 0; i < fileEntries.Length; )
+            
+          
+            for (int i = 0; i < flaggen.Count; )
             {
-                //if (flip == true)
-                //{
-                //    Feld.Add(picboxes[i], fileEntries[i]);
-                //    MemoryHelp.ProcessFile((PictureBox)picboxes[i], fileEntries[i]);
-                //    flip = false;
-                //}
-                //else
-                //{
-                //    picboxes[i].Tag = fileEntries[i-1];
-                //    picboxes[i].Invalidate();
-                //    flip = true;
-                //}
+                string[,] local = (string[,]) flaggen[i];
 
+                //MessageBox.Show(local[0,1]);
                 //Feld.Add(picboxes[i], fileEntries[i]);
-                MemoryHelp.ProcessFile((PictureBox)picboxes[i], fileEntries[i]);
+                
+                MemoryHelp.ProcessFile((PictureBox)picboxes[i], local[0,1]);
 
-                picboxes[i+1].Tag = fileEntries[i+1];
+                picboxes[i+1].Tag = local[0,0];
                 picboxes[i+1].Invalidate();
                 i = i+2;
                 
