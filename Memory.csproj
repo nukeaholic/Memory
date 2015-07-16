@@ -95,7 +95,7 @@
     <None Include="Resources\Belgium.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Czech Republic.png" />
+    <None Include="Resources\CzechRepublic.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Denmark.png" />

@@ -27,20 +27,23 @@ namespace Memory
 
         private string[,] austria = new string[1, 2] { { "austria", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Austria.png" } };
         private string[,] belgium = new string[1, 2] { { "belgium", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Belgium.png" } };
-        private string[,] czech = new string[1, 2] { { "czech republic", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Czech Republic.png.png" } };
-        private string[,] denmark = new string[1, 2] { { "denmark", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\denmark.png" } };
-        private string[,] france = new string[1, 2] { { "france", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\france.png" } };
-        private string[,] germany = new string[1, 2] { { "germany", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\germany.png" } };
-        private string[,] iceland = new string[1, 2] { { "iceland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\iceland.png" } };
-        private string[,] ireland = new string[1, 2] { { "ireland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\ireland.png" } };
-        private string[,] luxembourg = new string[1, 2] { { "luxembourg", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\luxembourg.png" } };
-        private string[,] netherlands = new string[1, 2] { { "netherlands", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\netherlands.png" } };
-        private string[,] norway = new string[1, 2] { { "norway", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\norway.png" } };
-        private string[,] portugal = new string[1, 2] { { "portugal", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\portugal.png" } };
-        private string[,] spain = new string[1, 2] { { "spain", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\spain.png" } };
-        private string[,] sweden = new string[1, 2] { { "sweden", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\sweden.png" } };
-        private string[,] switzerand = new string[1, 2] { { "switzerand", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\switzerand.png" } };
-        private string[,] uk = new string[1, 2] { { "united kingdom", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Portugal.png" } };
+        private string[,] czech = new string[1, 2] { { "czech republic", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\CzechRepublic.png" } };
+        private string[,] denmark = new string[1, 2] { { "denmark", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Denmark.png" } };
+        
+        private string[,] france = new string[1, 2] { { "france", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\France.png" } };
+        private string[,] germany = new string[1, 2] { { "germany", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Germany.png" } };
+        private string[,] iceland = new string[1, 2] { { "iceland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Iceland.png" } };
+        private string[,] ireland = new string[1, 2] { { "ireland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Ireland.png" } };
+        
+        private string[,] luxembourg = new string[1, 2] { { "luxembourg", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Luxembourg.png" } };
+        private string[,] netherlands = new string[1, 2] { { "netherlands", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Netherlands.png" } };
+        private string[,] norway = new string[1, 2] { { "norway", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Norway.png" } };
+        private string[,] portugal = new string[1, 2] { { "portugal", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Portugal.png" } };
+        
+        private string[,] spain = new string[1, 2] { { "spain", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Spain.png" } };
+        private string[,] sweden = new string[1, 2] { { "sweden", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Sweden.png" } };
+        private string[,] switzerand = new string[1, 2] { { "switzerland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Switzerland.png" } };
+        private string[,] uk = new string[1, 2] { { "united kingdom", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\UK.png" } };
         
         //On Load
         protected override void OnLoad(EventArgs e)
@@ -91,14 +94,17 @@ namespace Memory
             flaggen.Add(belgium);
             flaggen.Add(czech);
             flaggen.Add(denmark);
+
             flaggen.Add(france);
             flaggen.Add(germany);
             flaggen.Add(iceland);
             flaggen.Add(ireland);
+
             flaggen.Add(luxembourg);
             flaggen.Add(netherlands);
             flaggen.Add(norway);
             flaggen.Add(portugal);
+
             flaggen.Add(spain);
             flaggen.Add(sweden);
             flaggen.Add(switzerand);
@@ -128,27 +134,34 @@ namespace Memory
             picboxes.Add(picBox_33);
   
             MemoryHelp.Shuffle(flaggen);
+            MemoryHelp.Shuffle(picboxes);
 
             // loop über fileEntries as pfad
             // Erstellung von Dict
             //  -> Key Picturebox[i]
             //  -> Value pfad
 
-            
-          
-            for (int i = 0; i < flaggen.Count; )
+            bool flip = true;
+            int i = 0;
+
+            foreach (PictureBox box in picboxes)
             {
-                string[,] local = (string[,]) flaggen[i];
+                string[,] local = (string[,])flaggen[i];
 
-                //MessageBox.Show(local[0,1]);
-                //Feld.Add(picboxes[i], fileEntries[i]);
-                
-                MemoryHelp.ProcessFile((PictureBox)picboxes[i], local[0,1]);
-
-                picboxes[i+1].Tag = local[0,0];
-                picboxes[i+1].Invalidate();
-                i = i+2;
-                
+                if (flip) 
+                {
+                    MemoryHelp.ProcessFile(box, local[0, 1]);
+                    flip = false;
+                }
+                else
+                {
+                    System.Drawing.Graphics g = box.CreateGraphics();
+                    g.DrawString(local[0,0], new Font("Arial", 14), Brushes.Black, new Point(2, 2));
+                    
+                    
+                    flip = true;
+                }
+                i++;
             }
 
             // Recurse into subdirectories of this directory. 
@@ -158,19 +171,13 @@ namespace Memory
 
         }
 
-        //picBox_XX_PAINT
-        private void picBox_XX_Paint(object sender, PaintEventArgs e)
-        {
-            PictureBox picBox = (PictureBox)sender;
-            string name = picBox.Tag.ToString();
 
-            Console.WriteLine("*********************"+name);
 
-            using (Font myFont = new Font("Arial", 14))
-            {
-                e.Graphics.DrawString(name, myFont, Brushes.Black, new Point(2, 2));
-            }
-        }
+        //    using (Font myFont = new Font("Arial", 14))
+        //    {
+        //        e.Graphics.DrawString(name, myFont, Brushes.Black, new Point(2, 2));
+        //    }
+
 
         //picBox_XX_onCLICK
         private void picBox_XX_onClick(object sender, EventArgs e)
