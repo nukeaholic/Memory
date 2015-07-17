@@ -47,6 +47,7 @@ namespace Memory
 
         private List<string> quest = new List<string>();
         private int f = 0;
+        int move_counter = 0;
 
         //On Load
         protected override void OnLoad(EventArgs e)
@@ -179,7 +180,8 @@ namespace Memory
             PictureBox picBox = (PictureBox)sender;
             //MessageBox.Show(picBox.Tag+"\n***\n"+lbl_quest.Text);
 
-            
+            move_counter++;
+            txtBox_Turns.Text = move_counter.ToString();
             if (picBox.Tag.Equals(lbl_quest.Text))
             {
                 MessageBox.Show("RICHTIG");
@@ -191,8 +193,8 @@ namespace Memory
 
                 else
                 {
-                    MessageBox.Show("Das spiel ist fertig");
                     lbl_quest.Text = "FERTIG :D";
+                    MessageBox.Show("Das spiel ist fertig\n\nDu hast "+move_counter+" Züge gebraucht.");                    
                     frm_Start.Visible = true;
                     this.Close();
                 }
