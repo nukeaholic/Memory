@@ -42,7 +42,7 @@ namespace Memory
         
         private string[,] spain = new string[1, 2] { { "spain", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Spain.png" } };
         private string[,] sweden = new string[1, 2] { { "sweden", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Sweden.png" } };
-        private string[,] switzerand = new string[1, 2] { { "switzerland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Switzerland.png" } };
+        private string[,] switzerland = new string[1, 2] { { "switzerland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Switzerland.png" } };
         private string[,] uk = new string[1, 2] { { "united kingdom", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\UK.png" } };
         
         //On Load
@@ -107,7 +107,7 @@ namespace Memory
 
             flaggen.Add(spain);
             flaggen.Add(sweden);
-            flaggen.Add(switzerand);
+            flaggen.Add(switzerland);
             flaggen.Add(uk);
 
             
