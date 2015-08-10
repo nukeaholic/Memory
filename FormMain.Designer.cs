@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.pnl_menu = new System.Windows.Forms.Panel();
+            this.btn_start = new System.Windows.Forms.Button();
             this.btn_quit_main = new System.Windows.Forms.Button();
-            this.btn_Back = new System.Windows.Forms.Button();
             this.lbl_Turns = new System.Windows.Forms.Label();
             this.txtBox_Turns = new System.Windows.Forms.TextBox();
             this.picBox_01 = new System.Windows.Forms.PictureBox();
@@ -49,7 +49,7 @@
             this.picBox_22 = new System.Windows.Forms.PictureBox();
             this.picBox_12 = new System.Windows.Forms.PictureBox();
             this.picBox_00 = new System.Windows.Forms.PictureBox();
-            this.lbl_quest = new System.Windows.Forms.Label();
+            this.lbl_solution = new System.Windows.Forms.Label();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_02)).BeginInit();
@@ -71,14 +71,24 @@
             // 
             // pnl_menu
             // 
+            this.pnl_menu.Controls.Add(this.btn_start);
             this.pnl_menu.Controls.Add(this.btn_quit_main);
-            this.pnl_menu.Controls.Add(this.btn_Back);
             this.pnl_menu.Controls.Add(this.lbl_Turns);
             this.pnl_menu.Controls.Add(this.txtBox_Turns);
             this.pnl_menu.Location = new System.Drawing.Point(1190, 70);
             this.pnl_menu.Name = "pnl_menu";
             this.pnl_menu.Size = new System.Drawing.Size(217, 901);
             this.pnl_menu.TabIndex = 16;
+            // 
+            // btn_start
+            // 
+            this.btn_start.Location = new System.Drawing.Point(48, 618);
+            this.btn_start.Name = "btn_start";
+            this.btn_start.Size = new System.Drawing.Size(143, 48);
+            this.btn_start.TabIndex = 6;
+            this.btn_start.Text = "Start";
+            this.btn_start.UseVisualStyleBackColor = true;
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
             // btn_quit_main
             // 
@@ -89,16 +99,6 @@
             this.btn_quit_main.Text = "Beenden";
             this.btn_quit_main.UseVisualStyleBackColor = true;
             this.btn_quit_main.Click += new System.EventHandler(this.btn_quit_main_onClick);
-            // 
-            // btn_Back
-            // 
-            this.btn_Back.Location = new System.Drawing.Point(48, 624);
-            this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(143, 48);
-            this.btn_Back.TabIndex = 4;
-            this.btn_Back.Text = "Zurück";
-            this.btn_Back.UseVisualStyleBackColor = true;
-            this.btn_Back.Click += new System.EventHandler(this.btn_Back_OnClick);
             // 
             // lbl_Turns
             // 
@@ -126,7 +126,7 @@
             // picBox_01
             // 
             this.picBox_01.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_01.Enabled = false;
             this.picBox_01.Location = new System.Drawing.Point(366, 155);
             this.picBox_01.Name = "picBox_01";
             this.picBox_01.Size = new System.Drawing.Size(200, 200);
@@ -138,7 +138,7 @@
             // picBox_02
             // 
             this.picBox_02.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_02.Enabled = false;
             this.picBox_02.Location = new System.Drawing.Point(616, 155);
             this.picBox_02.Name = "picBox_02";
             this.picBox_02.Size = new System.Drawing.Size(200, 200);
@@ -151,7 +151,7 @@
             // picBox_03
             // 
             this.picBox_03.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_03.Enabled = false;
             this.picBox_03.Location = new System.Drawing.Point(866, 155);
             this.picBox_03.Name = "picBox_03";
             this.picBox_03.Size = new System.Drawing.Size(200, 200);
@@ -163,7 +163,7 @@
             // picBox_10
             // 
             this.picBox_10.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_10.Enabled = false;
             this.picBox_10.Location = new System.Drawing.Point(116, 405);
             this.picBox_10.Name = "picBox_10";
             this.picBox_10.Size = new System.Drawing.Size(200, 200);
@@ -175,7 +175,7 @@
             // picBox_20
             // 
             this.picBox_20.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_20.Enabled = false;
             this.picBox_20.Location = new System.Drawing.Point(116, 655);
             this.picBox_20.Name = "picBox_20";
             this.picBox_20.Size = new System.Drawing.Size(200, 200);
@@ -187,7 +187,7 @@
             // picBox_30
             // 
             this.picBox_30.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_30.Enabled = false;
             this.picBox_30.Location = new System.Drawing.Point(116, 905);
             this.picBox_30.Name = "picBox_30";
             this.picBox_30.Size = new System.Drawing.Size(200, 200);
@@ -199,7 +199,7 @@
             // picBox_11
             // 
             this.picBox_11.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_11.Enabled = false;
             this.picBox_11.Location = new System.Drawing.Point(366, 405);
             this.picBox_11.Name = "picBox_11";
             this.picBox_11.Size = new System.Drawing.Size(200, 200);
@@ -211,7 +211,7 @@
             // picBox_21
             // 
             this.picBox_21.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_21.Enabled = false;
             this.picBox_21.Location = new System.Drawing.Point(366, 655);
             this.picBox_21.Name = "picBox_21";
             this.picBox_21.Size = new System.Drawing.Size(200, 200);
@@ -223,7 +223,7 @@
             // picBox_31
             // 
             this.picBox_31.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_31.Enabled = false;
             this.picBox_31.Location = new System.Drawing.Point(366, 905);
             this.picBox_31.Name = "picBox_31";
             this.picBox_31.Size = new System.Drawing.Size(200, 200);
@@ -235,7 +235,7 @@
             // picBox_32
             // 
             this.picBox_32.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_32.Enabled = false;
             this.picBox_32.Location = new System.Drawing.Point(616, 905);
             this.picBox_32.Name = "picBox_32";
             this.picBox_32.Size = new System.Drawing.Size(200, 200);
@@ -247,7 +247,7 @@
             // picBox_33
             // 
             this.picBox_33.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_33.Enabled = false;
             this.picBox_33.Location = new System.Drawing.Point(866, 905);
             this.picBox_33.Name = "picBox_33";
             this.picBox_33.Size = new System.Drawing.Size(200, 200);
@@ -259,7 +259,7 @@
             // picBox_23
             // 
             this.picBox_23.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_23.Enabled = false;
             this.picBox_23.Location = new System.Drawing.Point(866, 655);
             this.picBox_23.Name = "picBox_23";
             this.picBox_23.Size = new System.Drawing.Size(200, 200);
@@ -271,7 +271,7 @@
             // picBox_13
             // 
             this.picBox_13.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_13.Enabled = false;
             this.picBox_13.Location = new System.Drawing.Point(866, 405);
             this.picBox_13.Name = "picBox_13";
             this.picBox_13.Size = new System.Drawing.Size(200, 200);
@@ -283,7 +283,7 @@
             // picBox_22
             // 
             this.picBox_22.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_22.Enabled = false;
             this.picBox_22.Location = new System.Drawing.Point(616, 655);
             this.picBox_22.Name = "picBox_22";
             this.picBox_22.Size = new System.Drawing.Size(200, 200);
@@ -295,7 +295,7 @@
             // picBox_12
             // 
             this.picBox_12.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_12.Enabled = false;
             this.picBox_12.Location = new System.Drawing.Point(616, 405);
             this.picBox_12.Name = "picBox_12";
             this.picBox_12.Size = new System.Drawing.Size(200, 200);
@@ -307,7 +307,7 @@
             // picBox_00
             // 
             this.picBox_00.BackColor = System.Drawing.SystemColors.Control;
-            this.picBox_00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox_00.Enabled = false;
             this.picBox_00.Location = new System.Drawing.Point(116, 155);
             this.picBox_00.Name = "picBox_00";
             this.picBox_00.Size = new System.Drawing.Size(200, 200);
@@ -316,23 +316,22 @@
             this.picBox_00.TabStop = false;
             this.picBox_00.Click += new System.EventHandler(this.picBox_XX_onClick);
             // 
-            // lbl_quest
+            // lbl_solution
             // 
-            this.lbl_quest.AutoSize = true;
-            this.lbl_quest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_quest.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_quest.Location = new System.Drawing.Point(494, 35);
-            this.lbl_quest.Name = "lbl_quest";
-            this.lbl_quest.Size = new System.Drawing.Size(219, 65);
-            this.lbl_quest.TabIndex = 17;
-            this.lbl_quest.Text = "(empty)";
+            this.lbl_solution.AutoSize = true;
+            this.lbl_solution.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_solution.Location = new System.Drawing.Point(494, 35);
+            this.lbl_solution.Name = "lbl_solution";
+            this.lbl_solution.Size = new System.Drawing.Size(278, 63);
+            this.lbl_solution.TabIndex = 17;
+            this.lbl_solution.Text = "Memory :)";
             // 
             // frm_Memory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1428, 1181);
-            this.Controls.Add(this.lbl_quest);
+            this.Controls.Add(this.lbl_solution);
             this.Controls.Add(this.pnl_menu);
             this.Controls.Add(this.picBox_01);
             this.Controls.Add(this.picBox_02);
@@ -380,7 +379,6 @@
         private System.Windows.Forms.Panel pnl_menu;
         private System.Windows.Forms.Label lbl_Turns;
         private System.Windows.Forms.TextBox txtBox_Turns;
-        private System.Windows.Forms.Button btn_Back;
         public System.Windows.Forms.PictureBox picBox_00;
         public System.Windows.Forms.PictureBox picBox_12;
         public System.Windows.Forms.PictureBox picBox_22;
@@ -398,7 +396,8 @@
         public System.Windows.Forms.PictureBox picBox_02;
         public System.Windows.Forms.PictureBox picBox_01;
         private System.Windows.Forms.Button btn_quit_main;
-        private System.Windows.Forms.Label lbl_quest;
+        private System.Windows.Forms.Label lbl_solution;
+        private System.Windows.Forms.Button btn_start;
 
         public System.Windows.Forms.PictureBox PicBox_01
         {

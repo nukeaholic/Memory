@@ -22,7 +22,6 @@ namespace Memory
         private string path = "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources";
         //private Dictionary<PictureBox, string> Feld = new Dictionary<PictureBox, string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
-        private frm_Start frm_Start;
         private List <Array> flaggen = new List<Array>();
 
         private string[,] austria = new string[1, 2] { { "Austria", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Austria.png" } };
@@ -46,52 +45,51 @@ namespace Memory
         private string[,] uk = new string[1, 2] { { "United Kingdom", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\UK.png" } };
 
         private List<string> quest = new List<string>();
+
         private int f = 0;
-        int move_counter = 0;
+        private int i = 0;
+        private bool flip = true;
+        private int move_counter = 0;
+        private string select;
+        private bool flop = true;
+        private PictureBox temp;
+        PictureBox current;
 
         //On Load
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            ProcessDirectory(path);
+            //ProcessDirectory(path);
         }
 
 
-        public frm_Memory(frm_Start frm_Start)
+        public frm_Memory()
         {
             InitializeComponent();
-            this.frm_Start = frm_Start;
         }
-
-        //btn_BACK
-        private void btn_Back_OnClick(object sender, EventArgs e)
-        {
-            frm_Start.Visible = true;
-            this.Close();
-        }        
+       
 
         //btn_QUIT
         private void btn_quit_main_onClick(object sender, EventArgs e)
         {
-            frm_Start.Close();
             this.Close();
         }
 
-        
 
 
-        //Picboxen abfüllen
-        public void ProcessDirectory(string targetDirectory)
+
+        private void btn_start_Click(object sender, EventArgs e)
         {
 
+            btn_start.Enabled = false;
 
 
             // Process the list of files found in the directory. 
 
             //string[] fileEntries = Directory.GetFiles(targetDirectory);
 
-            
-            
+
+
             //Flaggen in Liste
 
             flaggen.Add(austria);
@@ -114,7 +112,7 @@ namespace Memory
             flaggen.Add(switzerland);
             flaggen.Add(uk);
 
-            
+
             // Pictureboxes in Liste
 
             picboxes.Add(picBox_00);
@@ -136,7 +134,7 @@ namespace Memory
             picboxes.Add(picBox_31);
             picboxes.Add(picBox_32);
             picboxes.Add(picBox_33);
-  
+
             MemoryHelp.Shuffle(flaggen);
             MemoryHelp.Shuffle(picboxes);
 
@@ -145,33 +143,38 @@ namespace Memory
             //  -> Key Picturebox[i]
             //  -> Value pfad
 
+
             
-            int i = 0;
 
             foreach (PictureBox box in picboxes)
             {
+                box.Enabled = true;
                 string[,] local = (string[,])flaggen[i];
-                MemoryHelp.ProcessFile(box, local[0, 1]);
-                quest.Add(local[0, 0]);
-                box.Tag = local[0, 0];
-                
-                i++;
+                if (flip == true)
+                {
+                    MemoryHelp.ProcessFile(box, local[0, 1]);
+                    box.Tag = local[0, 0];
+                    flip = false;
+                }
+
+                else
+                {
+                    using (Font myFont = new Font("Arial", 14))
+                    {
+                        //e.Graphics.DrawString(local[0,0], myFont, Brushes.Black, new Point(2, 2));                        
+                        //MessageBox.Show(e.ToString());
+
+                        System.Drawing.Graphics g = box.CreateGraphics();
+                        g.DrawString(local[0, 0], myFont, Brushes.Black, new Point(2, 2));
+
+                        box.Tag = local[0, 0];
+
+                        flip = true;
+                        i++;
+                    }
+                }
             }
-            lbl_quest.Text = quest[0];
-
-            // Recurse into subdirectories of this directory. 
-            string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
-            foreach (string subdirectory in subdirectoryEntries)
-                ProcessDirectory(subdirectory);
-
         }
-
-
-
-        //    using (Font myFont = new Font("Arial", 14))
-        //    {
-        //        e.Graphics.DrawString(name, myFont, Brushes.Black, new Point(2, 2));
-        //    }
 
 
         //picBox_XX_onCLICK
@@ -180,30 +183,51 @@ namespace Memory
             PictureBox picBox = (PictureBox)sender;
             //MessageBox.Show(picBox.Tag+"\n***\n"+lbl_quest.Text);
 
-            move_counter++;
-            txtBox_Turns.Text = move_counter.ToString();
-            if (picBox.Tag.Equals(lbl_quest.Text))
-            {
-                MessageBox.Show("RICHTIG");
-                f++;
-                if (f < quest.Count)
+            
+
+            
+            
+
+            if (flop == true){
+
+                current = (PictureBox)picBox;
+                select = picBox.Tag.ToString();
+                flop = false;
+                temp = picBox;
+            }
+
+            else{ 
+
+                if(picBox.Tag.Equals(select) && picBox.Name != current.Name)
                 {
-                    lbl_quest.Text = quest[f];
+                    MessageBox.Show("RICHTIG");
+                    select = "";
+                    picBox.Enabled = false;
+                    picBox.Visible = false;
+                    temp.Enabled = false;
+                    temp.Visible = false;
+
+                    f++;
                 }
 
-                else
+                else{
+                    MessageBox.Show("FALSCH");
+                    select = "";
+                }
+                move_counter++;
+                txtBox_Turns.Text = move_counter.ToString();
+                flop = true;
+
+                if (f == 8)
                 {
-                    lbl_quest.Text = "FERTIG :D";
-                    MessageBox.Show("Das spiel ist fertig\n\nDu hast "+move_counter+" Züge gebraucht.");                    
-                    frm_Start.Visible = true;
-                    this.Close();
+                    MessageBox.Show("Du hast es geschafft!\n\nDu hast nur " + move_counter + " Züge gebraucht!");
+                        this.Close();
                 }
             }
-            else
-            {
-                MessageBox.Show("FALSCH");
-            }
+            
         }
+
+        
 
         
     }

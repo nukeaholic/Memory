@@ -7,4 +7,3 @@ d:\users\ehanss\documents\visual studio 2013\Projects\Memory\Memory\obj\Debug\Me
 d:\users\ehanss\documents\visual studio 2013\Projects\Memory\Memory\obj\Debug\Memory.pdb
 d:\users\ehanss\documents\visual studio 2013\Projects\Memory\Memory\obj\Debug\Memory.frm_Memory.resources
 D:\Users\ehanss\documents\visual studio 2013\Projects\Memory\Memory\obj\Debug\Memory.csprojResolveAssemblyReference.cache
-D:\Users\ehanss\documents\visual studio 2013\Projects\Memory\Memory\obj\Debug\Memory.frm_Start.resources
