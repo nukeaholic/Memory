@@ -26,7 +26,7 @@ namespace Memory
 
         private string[,] austria = new string[1, 2] { { "Austria", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Austria.png" } };
         private string[,] belgium = new string[1, 2] { { "Belgium", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Belgium.png" } };
-        private string[,] czech = new string[1, 2] { { "Czech republic", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\CzechRepublic.png" } };
+        private string[,] czech = new string[1, 2] { { "Czech Republic", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\CzechRepublic.png" } };
         private string[,] denmark = new string[1, 2] { { "Denmark", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Denmark.png" } };
         
         private string[,] france = new string[1, 2] { { "France", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\France.png" } };
@@ -34,7 +34,7 @@ namespace Memory
         private string[,] iceland = new string[1, 2] { { "Iceland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Iceland.png" } };
         private string[,] ireland = new string[1, 2] { { "Ireland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Ireland.png" } };
         
-        private string[,] luxembourg = new string[1, 2] { { "luxembourg", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Luxembourg.png" } };
+        private string[,] luxembourg = new string[1, 2] { { "Luxembourg", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Luxembourg.png" } };
         private string[,] netherlands = new string[1, 2] { { "Netherlands", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Netherlands.png" } };
         private string[,] norway = new string[1, 2] { { "Norway", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Norway.png" } };
         private string[,] portugal = new string[1, 2] { { "Portugal", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Portugal.png" } };
@@ -159,13 +159,14 @@ namespace Memory
 
                 else
                 {
-                    using (Font myFont = new Font("Arial", 14))
+                    
+                    using (Font myFont = new Font("Arial", 20))
                     {
                         //e.Graphics.DrawString(local[0,0], myFont, Brushes.Black, new Point(2, 2));                        
                         //MessageBox.Show(e.ToString());
-
+                        
                         System.Drawing.Graphics g = box.CreateGraphics();
-                        g.DrawString(local[0, 0], myFont, Brushes.Black, new Point(2, 2));
+                        g.DrawString(local[0, 0], myFont, Brushes.Black, new Point(1, 100));
 
                         box.Tag = local[0, 0];
 
