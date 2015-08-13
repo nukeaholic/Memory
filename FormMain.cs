@@ -17,10 +17,8 @@ namespace Memory
     public partial class frm_Memory : Form
     {
 
-        
 
-        private string path = "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources";
-        //private Dictionary<PictureBox, string> Feld = new Dictionary<PictureBox, string>();
+        private string pathbg = "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\background.jpg";
         private List<PictureBox> picboxes = new List<PictureBox>();
         private List <Array> flaggen = new List<Array>();
 
@@ -55,14 +53,23 @@ namespace Memory
         private PictureBox temp;
         PictureBox current;
         private int wrong_move = 0;
+        private int bla = 1;
 
         //On Load
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            //ProcessDirectory(path);
         }
 
+        
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if (bla == 1){
+                ProcessDirectory();
+                bla++;
+            }
+        }        
 
         public frm_Memory()
         {
@@ -81,7 +88,11 @@ namespace Memory
 
         private void btn_start_Click(object sender, EventArgs e)
         {
+            ProcessDirectory();
+        }
 
+        public void ProcessDirectory()
+        {
             btn_start.Enabled = false;
 
 
@@ -145,8 +156,8 @@ namespace Memory
             //  -> Value pfad
 
 
-            
 
+            i = 0;
             foreach (PictureBox box in picboxes)
             {
                 box.Enabled = true;
@@ -160,33 +171,39 @@ namespace Memory
 
                 else
                 {
-                    
-                    using (Font myFont = new Font("Arial", 20))
-                    {
-                        //e.Graphics.DrawString(local[0,0], myFont, Brushes.Black, new Point(2, 2));                        
-                        //MessageBox.Show(e.ToString());
-                        
-                        System.Drawing.Graphics g = box.CreateGraphics();
-                        g.DrawString(local[0, 0], myFont, Brushes.Black, new Point(1, 100));
+                    box.Image = null;
 
-                        box.Tag = local[0, 0];
+                    box.Refresh();
 
-                        flip = true;
-                        i++;
-                    }
+                    paint(local[0, 0], box);                    
+
+                    box.Tag = local[0, 0];
+
+                    flip = true;
+                    i++;
                 }
             }
         }
 
+        private void paint(string text, PictureBox box)
+        {
+            using (Font myFont = new Font("Arial", 20))
+            {
+                System.Drawing.Graphics g = box.CreateGraphics();
+                g.DrawString(text, myFont, Brushes.Black, new Point (1, 100));                
+            }
+        }
+
+        private void frm_paint(Color colour)
+        {
+            this.BackColor = colour;
+        }
 
         //picBox_XX_onCLICK
         private void picBox_XX_onClick(object sender, EventArgs e)
         {
             PictureBox picBox = (PictureBox)sender;
             //MessageBox.Show(picBox.Tag+"\n***\n"+lbl_quest.Text);
-
-            
-
             
             
 
@@ -196,27 +213,48 @@ namespace Memory
                 select = picBox.Tag.ToString();
                 flop = false;
                 temp = picBox;
+
+
+                picBox.BorderStyle = BorderStyle.Fixed3D;
+                if (picBox.Image == null)
+                {
+                    picBox.Refresh();
+                    paint(picBox.Tag.ToString(), picBox);
+                }
+                
             }
 
             else{ 
 
                 if(picBox.Tag.Equals(select) && picBox.Name != current.Name)
                 {
-                    MessageBox.Show("RICHTIG");
+                    frm_paint(Color.PaleGreen);
+                    //MessageBox.Show("RICHTIG");
                     select = "";
+                    picBox.Image = null;
                     picBox.Enabled = false;
                     picBox.Visible = false;
+                    temp.Image = null;
                     temp.Enabled = false;
                     temp.Visible = false;
 
                     f++;
+
+                    tmr_colour.Enabled = true;
+                    tmr_colour.Start();
                 }
 
                 else{
-                    MessageBox.Show("FALSCH");
+                    frm_paint(Color.IndianRed);
+                    //MessageBox.Show("FALSCH");
                     select = "";
                     wrong_move++;
+
+                    tmr_colour.Enabled = true;
+                    tmr_colour.Start();
+                    
                 }
+
                 move_counter++;
                 txtBox_Turns.Text = move_counter.ToString();
                 flop = true;
@@ -224,9 +262,25 @@ namespace Memory
                 if (f == 8)
                 {
                     MessageBox.Show("Du hast es geschafft!\n\nDu hast nur " + move_counter + " Züge gebraucht!\n\nDu hast "+wrong_move+" Fehler gemacht.");
+                    
+                    btn_start.Enabled = true;
                     this.Close();
+                    //foreach (PictureBox box in picboxes)
+                    //{
+                    //    box.Enabled = true;
+                    //    box.Visible = true;
+                    //    box.Tag = null;
+                    //    MemoryHelp.ProcessFile(box, pathbg);
+
+                    //}
                 }
             }            
+        }
+
+        private void tmr_colour_Tick(object sender, EventArgs e)
+        {
+            frm_paint(Color.CadetBlue);
+            tmr_colour.Stop();
         }
     }
 }

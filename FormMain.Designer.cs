@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Memory));
             this.pnl_menu = new System.Windows.Forms.Panel();
             this.btn_start = new System.Windows.Forms.Button();
             this.btn_quit_main = new System.Windows.Forms.Button();
             this.lbl_Turns = new System.Windows.Forms.Label();
             this.txtBox_Turns = new System.Windows.Forms.TextBox();
+            this.lbl_solution = new System.Windows.Forms.Label();
+            this.tmr_colour = new System.Windows.Forms.Timer(this.components);
             this.picBox_01 = new System.Windows.Forms.PictureBox();
             this.picBox_02 = new System.Windows.Forms.PictureBox();
             this.picBox_03 = new System.Windows.Forms.PictureBox();
@@ -49,7 +53,6 @@
             this.picBox_22 = new System.Windows.Forms.PictureBox();
             this.picBox_12 = new System.Windows.Forms.PictureBox();
             this.picBox_00 = new System.Windows.Forms.PictureBox();
-            this.lbl_solution = new System.Windows.Forms.Label();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_02)).BeginInit();
@@ -123,10 +126,26 @@
             this.txtBox_Turns.Text = "0";
             this.txtBox_Turns.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // lbl_solution
+            // 
+            this.lbl_solution.AutoSize = true;
+            this.lbl_solution.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_solution.Location = new System.Drawing.Point(494, 35);
+            this.lbl_solution.Name = "lbl_solution";
+            this.lbl_solution.Size = new System.Drawing.Size(278, 63);
+            this.lbl_solution.TabIndex = 17;
+            this.lbl_solution.Text = "Memory :)";
+            // 
+            // tmr_colour
+            // 
+            this.tmr_colour.Interval = 750;
+            this.tmr_colour.Tick += new System.EventHandler(this.tmr_colour_Tick);
+            // 
             // picBox_01
             // 
             this.picBox_01.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_01.Enabled = false;
+            this.picBox_01.Image = ((System.Drawing.Image)(resources.GetObject("picBox_01.Image")));
             this.picBox_01.Location = new System.Drawing.Point(366, 155);
             this.picBox_01.Name = "picBox_01";
             this.picBox_01.Size = new System.Drawing.Size(200, 200);
@@ -139,6 +158,7 @@
             // 
             this.picBox_02.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_02.Enabled = false;
+            this.picBox_02.Image = ((System.Drawing.Image)(resources.GetObject("picBox_02.Image")));
             this.picBox_02.Location = new System.Drawing.Point(616, 155);
             this.picBox_02.Name = "picBox_02";
             this.picBox_02.Size = new System.Drawing.Size(200, 200);
@@ -152,6 +172,7 @@
             // 
             this.picBox_03.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_03.Enabled = false;
+            this.picBox_03.Image = ((System.Drawing.Image)(resources.GetObject("picBox_03.Image")));
             this.picBox_03.Location = new System.Drawing.Point(866, 155);
             this.picBox_03.Name = "picBox_03";
             this.picBox_03.Size = new System.Drawing.Size(200, 200);
@@ -164,6 +185,7 @@
             // 
             this.picBox_10.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_10.Enabled = false;
+            this.picBox_10.Image = ((System.Drawing.Image)(resources.GetObject("picBox_10.Image")));
             this.picBox_10.Location = new System.Drawing.Point(116, 405);
             this.picBox_10.Name = "picBox_10";
             this.picBox_10.Size = new System.Drawing.Size(200, 200);
@@ -176,6 +198,7 @@
             // 
             this.picBox_20.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_20.Enabled = false;
+            this.picBox_20.Image = ((System.Drawing.Image)(resources.GetObject("picBox_20.Image")));
             this.picBox_20.Location = new System.Drawing.Point(116, 655);
             this.picBox_20.Name = "picBox_20";
             this.picBox_20.Size = new System.Drawing.Size(200, 200);
@@ -188,6 +211,7 @@
             // 
             this.picBox_30.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_30.Enabled = false;
+            this.picBox_30.Image = ((System.Drawing.Image)(resources.GetObject("picBox_30.Image")));
             this.picBox_30.Location = new System.Drawing.Point(116, 905);
             this.picBox_30.Name = "picBox_30";
             this.picBox_30.Size = new System.Drawing.Size(200, 200);
@@ -200,6 +224,7 @@
             // 
             this.picBox_11.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_11.Enabled = false;
+            this.picBox_11.Image = ((System.Drawing.Image)(resources.GetObject("picBox_11.Image")));
             this.picBox_11.Location = new System.Drawing.Point(366, 405);
             this.picBox_11.Name = "picBox_11";
             this.picBox_11.Size = new System.Drawing.Size(200, 200);
@@ -212,6 +237,7 @@
             // 
             this.picBox_21.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_21.Enabled = false;
+            this.picBox_21.Image = ((System.Drawing.Image)(resources.GetObject("picBox_21.Image")));
             this.picBox_21.Location = new System.Drawing.Point(366, 655);
             this.picBox_21.Name = "picBox_21";
             this.picBox_21.Size = new System.Drawing.Size(200, 200);
@@ -224,6 +250,7 @@
             // 
             this.picBox_31.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_31.Enabled = false;
+            this.picBox_31.Image = ((System.Drawing.Image)(resources.GetObject("picBox_31.Image")));
             this.picBox_31.Location = new System.Drawing.Point(366, 905);
             this.picBox_31.Name = "picBox_31";
             this.picBox_31.Size = new System.Drawing.Size(200, 200);
@@ -236,6 +263,7 @@
             // 
             this.picBox_32.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_32.Enabled = false;
+            this.picBox_32.Image = ((System.Drawing.Image)(resources.GetObject("picBox_32.Image")));
             this.picBox_32.Location = new System.Drawing.Point(616, 905);
             this.picBox_32.Name = "picBox_32";
             this.picBox_32.Size = new System.Drawing.Size(200, 200);
@@ -248,6 +276,7 @@
             // 
             this.picBox_33.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_33.Enabled = false;
+            this.picBox_33.Image = ((System.Drawing.Image)(resources.GetObject("picBox_33.Image")));
             this.picBox_33.Location = new System.Drawing.Point(866, 905);
             this.picBox_33.Name = "picBox_33";
             this.picBox_33.Size = new System.Drawing.Size(200, 200);
@@ -260,6 +289,7 @@
             // 
             this.picBox_23.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_23.Enabled = false;
+            this.picBox_23.Image = ((System.Drawing.Image)(resources.GetObject("picBox_23.Image")));
             this.picBox_23.Location = new System.Drawing.Point(866, 655);
             this.picBox_23.Name = "picBox_23";
             this.picBox_23.Size = new System.Drawing.Size(200, 200);
@@ -272,6 +302,7 @@
             // 
             this.picBox_13.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_13.Enabled = false;
+            this.picBox_13.Image = ((System.Drawing.Image)(resources.GetObject("picBox_13.Image")));
             this.picBox_13.Location = new System.Drawing.Point(866, 405);
             this.picBox_13.Name = "picBox_13";
             this.picBox_13.Size = new System.Drawing.Size(200, 200);
@@ -284,6 +315,7 @@
             // 
             this.picBox_22.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_22.Enabled = false;
+            this.picBox_22.Image = ((System.Drawing.Image)(resources.GetObject("picBox_22.Image")));
             this.picBox_22.Location = new System.Drawing.Point(616, 655);
             this.picBox_22.Name = "picBox_22";
             this.picBox_22.Size = new System.Drawing.Size(200, 200);
@@ -296,6 +328,7 @@
             // 
             this.picBox_12.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_12.Enabled = false;
+            this.picBox_12.Image = ((System.Drawing.Image)(resources.GetObject("picBox_12.Image")));
             this.picBox_12.Location = new System.Drawing.Point(616, 405);
             this.picBox_12.Name = "picBox_12";
             this.picBox_12.Size = new System.Drawing.Size(200, 200);
@@ -308,6 +341,7 @@
             // 
             this.picBox_00.BackColor = System.Drawing.SystemColors.Control;
             this.picBox_00.Enabled = false;
+            this.picBox_00.Image = ((System.Drawing.Image)(resources.GetObject("picBox_00.Image")));
             this.picBox_00.Location = new System.Drawing.Point(116, 155);
             this.picBox_00.Name = "picBox_00";
             this.picBox_00.Size = new System.Drawing.Size(200, 200);
@@ -316,20 +350,11 @@
             this.picBox_00.TabStop = false;
             this.picBox_00.Click += new System.EventHandler(this.picBox_XX_onClick);
             // 
-            // lbl_solution
-            // 
-            this.lbl_solution.AutoSize = true;
-            this.lbl_solution.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_solution.Location = new System.Drawing.Point(494, 35);
-            this.lbl_solution.Name = "lbl_solution";
-            this.lbl_solution.Size = new System.Drawing.Size(278, 63);
-            this.lbl_solution.TabIndex = 17;
-            this.lbl_solution.Text = "Memory :)";
-            // 
             // frm_Memory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1428, 1181);
             this.Controls.Add(this.lbl_solution);
             this.Controls.Add(this.pnl_menu);
@@ -398,6 +423,7 @@
         private System.Windows.Forms.Button btn_quit_main;
         private System.Windows.Forms.Label lbl_solution;
         private System.Windows.Forms.Button btn_start;
+        private System.Windows.Forms.Timer tmr_colour;
 
         public System.Windows.Forms.PictureBox PicBox_01
         {
