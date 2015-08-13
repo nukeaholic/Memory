@@ -54,6 +54,7 @@ namespace Memory
         private bool flop = true;
         private PictureBox temp;
         PictureBox current;
+        private int wrong_move = 0;
 
         //On Load
         protected override void OnLoad(EventArgs e)
@@ -214,6 +215,7 @@ namespace Memory
                 else{
                     MessageBox.Show("FALSCH");
                     select = "";
+                    wrong_move++;
                 }
                 move_counter++;
                 txtBox_Turns.Text = move_counter.ToString();
@@ -221,15 +223,10 @@ namespace Memory
 
                 if (f == 8)
                 {
-                    MessageBox.Show("Du hast es geschafft!\n\nDu hast nur " + move_counter + " Züge gebraucht!");
-                        this.Close();
+                    MessageBox.Show("Du hast es geschafft!\n\nDu hast nur " + move_counter + " Züge gebraucht!\n\nDu hast "+wrong_move+" Fehler gemacht.");
+                    this.Close();
                 }
-            }
-            
+            }            
         }
-
-        
-
-        
     }
 }
