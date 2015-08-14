@@ -54,6 +54,7 @@ namespace Memory
         PictureBox current;
         private int wrong_move = 0;
         private int bla = 1;
+        PictureBox picBox;
 
         //On Load
         protected override void OnLoad(EventArgs e)
@@ -175,6 +176,7 @@ namespace Memory
 
                     box.Refresh();
 
+                    //e.Graphics.DrawString(local[0, 0], new Font("Arial", 20), Brushes.Black, new Point(1, 100));
                     paint(local[0, 0], box);                    
 
                     box.Tag = local[0, 0];
@@ -187,22 +189,25 @@ namespace Memory
 
         private void paint(string text, PictureBox box)
         {
-            using (Font myFont = new Font("Arial", 20))
-            {
-                System.Drawing.Graphics g = box.CreateGraphics();
-                g.DrawString(text, myFont, Brushes.Black, new Point (1, 100));                
-            }
+            //e.Graphics.DrawString(text, new Font("Arial", 20), Brushes.Black, new Point(1, 100));
+
+            System.Drawing.Graphics g = box.CreateGraphics();
+            g.DrawString(text, new Font("Arial", 20), Brushes.Black, new Point(1, 100));                
+
         }
 
-        private void frm_paint(Color colour)
+        private void frm_paint(Color colour, PictureBox PicBoxOne, PictureBox PicBoxTwo)
         {
-            this.BackColor = colour;
+            PicBoxOne.BackColor = colour;
+            PicBoxTwo.BackColor = colour;
+            repaint(PicBoxOne);
+            repaint(PicBoxTwo);
         }
 
         //picBox_XX_onCLICK
         private void picBox_XX_onClick(object sender, EventArgs e)
         {
-            PictureBox picBox = (PictureBox)sender;
+            picBox = (PictureBox)sender;
             //MessageBox.Show(picBox.Tag+"\n***\n"+lbl_quest.Text);
             
             
@@ -216,71 +221,109 @@ namespace Memory
 
 
                 picBox.BorderStyle = BorderStyle.Fixed3D;
-                if (picBox.Image == null)
-                {
-                    picBox.Refresh();
-                    paint(picBox.Tag.ToString(), picBox);
-                }
+                repaint(picBox);
                 
             }
 
-            else{ 
+            else{
 
-                if(picBox.Tag.Equals(select) && picBox.Name != current.Name)
+                if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
                 {
-                    frm_paint(Color.PaleGreen);
-                    //MessageBox.Show("RICHTIG");
-                    select = "";
-                    picBox.Image = null;
-                    picBox.Enabled = false;
-                    picBox.Visible = false;
-                    temp.Image = null;
-                    temp.Enabled = false;
-                    temp.Visible = false;
-
-                    f++;
-
+                    frm_paint(Color.PaleGreen, picBox, temp);
                     tmr_colour.Enabled = true;
                     tmr_colour.Start();
+                    //MessageBox.Show("RICHTIG");
+
+                    //select = "";
+                    //picBox.Image = null;
+                    //picBox.Enabled = false;
+                    //picBox.Visible = false;
+                    //temp.Image = null;
+                    //temp.Enabled = false;
+                    //temp.Visible = false;
+                    f++;
+                    txtBox_right.Text = f.ToString();
+
+
                 }
 
-                else{
-                    frm_paint(Color.IndianRed);
+                else
+                {
+
+                    frm_paint(Color.IndianRed, picBox, temp);
+                    tmr_colour.Enabled = true;
+                    tmr_colour.Start();
                     //MessageBox.Show("FALSCH");
                     select = "";
                     wrong_move++;
-
-                    tmr_colour.Enabled = true;
-                    tmr_colour.Start();
-                    
                 }
+                
+
+                
 
                 move_counter++;
                 txtBox_Turns.Text = move_counter.ToString();
                 flop = true;
+                temp.BorderStyle = BorderStyle.None;
+                repaint(temp);
 
                 if (f == 8)
                 {
-                    MessageBox.Show("Du hast es geschafft!\n\nDu hast nur " + move_counter + " Züge gebraucht!\n\nDu hast "+wrong_move+" Fehler gemacht.");
+                    MessageBox.Show("Du hast es geschafft!\n\nDu hast nur " + move_counter + " Züge gebraucht!\n\nDu hast " + wrong_move + " Fehler gemacht.");
                     
                     btn_start.Enabled = true;
                     this.Close();
-                    //foreach (PictureBox box in picboxes)
-                    //{
-                    //    box.Enabled = true;
-                    //    box.Visible = true;
-                    //    box.Tag = null;
-                    //    MemoryHelp.ProcessFile(box, pathbg);
-
-                    //}
+                    foreach (PictureBox box in picboxes)
+                    {
+                        move_counter = 0;
+                        txtBox_Turns.Text = move_counter.ToString();
+                        f = 0;
+                        txtBox_right.Text = f.ToString();
+                        box.Visible = true;
+                        box.Tag = null;
+                        box.BackColor = Color.LightGray;
+                        MemoryHelp.ProcessFile(box, pathbg);
+                    }
                 }
             }            
         }
 
         private void tmr_colour_Tick(object sender, EventArgs e)
         {
-            frm_paint(Color.CadetBlue);
+
             tmr_colour.Stop();
+            tmr_colour.Enabled = false;
+
+
+            if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
+            {
+
+                select = "";
+                picBox.Image = null;
+                picBox.Enabled = false;
+                picBox.Visible = false;
+                temp.Image = null;
+                temp.Enabled = false;
+                temp.Visible = false;
+                
+
+            }
+
+            frm_paint(Color.LightGray, picBox, temp);
+            repaint(picBox);
+            repaint(temp);
+            
+        }
+
+        
+
+        private void repaint(PictureBox box)
+        {
+            if (box.Image == null)
+            {
+                box.Refresh();
+                paint(box.Tag.ToString(), box);
+            }            
         }
     }
 }

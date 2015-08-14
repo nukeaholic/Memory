@@ -53,6 +53,8 @@
             this.picBox_22 = new System.Windows.Forms.PictureBox();
             this.picBox_12 = new System.Windows.Forms.PictureBox();
             this.picBox_00 = new System.Windows.Forms.PictureBox();
+            this.lbl_right = new System.Windows.Forms.Label();
+            this.txtBox_right = new System.Windows.Forms.TextBox();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_02)).BeginInit();
@@ -74,6 +76,8 @@
             // 
             // pnl_menu
             // 
+            this.pnl_menu.Controls.Add(this.txtBox_right);
+            this.pnl_menu.Controls.Add(this.lbl_right);
             this.pnl_menu.Controls.Add(this.btn_start);
             this.pnl_menu.Controls.Add(this.btn_quit_main);
             this.pnl_menu.Controls.Add(this.lbl_Turns);
@@ -107,7 +111,7 @@
             // 
             this.lbl_Turns.AutoSize = true;
             this.lbl_Turns.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Turns.Location = new System.Drawing.Point(75, 354);
+            this.lbl_Turns.Location = new System.Drawing.Point(45, 201);
             this.lbl_Turns.Name = "lbl_Turns";
             this.lbl_Turns.Size = new System.Drawing.Size(40, 13);
             this.lbl_Turns.TabIndex = 3;
@@ -117,7 +121,7 @@
             // 
             this.txtBox_Turns.Enabled = false;
             this.txtBox_Turns.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_Turns.Location = new System.Drawing.Point(48, 387);
+            this.txtBox_Turns.Location = new System.Drawing.Point(48, 232);
             this.txtBox_Turns.Name = "txtBox_Turns";
             this.txtBox_Turns.ReadOnly = true;
             this.txtBox_Turns.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -138,12 +142,12 @@
             // 
             // tmr_colour
             // 
-            this.tmr_colour.Interval = 750;
+            this.tmr_colour.Interval = 500;
             this.tmr_colour.Tick += new System.EventHandler(this.tmr_colour_Tick);
             // 
             // picBox_01
             // 
-            this.picBox_01.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_01.BackColor = System.Drawing.Color.LightGray;
             this.picBox_01.Enabled = false;
             this.picBox_01.Image = ((System.Drawing.Image)(resources.GetObject("picBox_01.Image")));
             this.picBox_01.Location = new System.Drawing.Point(366, 155);
@@ -156,7 +160,7 @@
             // 
             // picBox_02
             // 
-            this.picBox_02.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_02.BackColor = System.Drawing.Color.LightGray;
             this.picBox_02.Enabled = false;
             this.picBox_02.Image = ((System.Drawing.Image)(resources.GetObject("picBox_02.Image")));
             this.picBox_02.Location = new System.Drawing.Point(616, 155);
@@ -170,7 +174,7 @@
             // 
             // picBox_03
             // 
-            this.picBox_03.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_03.BackColor = System.Drawing.Color.LightGray;
             this.picBox_03.Enabled = false;
             this.picBox_03.Image = ((System.Drawing.Image)(resources.GetObject("picBox_03.Image")));
             this.picBox_03.Location = new System.Drawing.Point(866, 155);
@@ -183,7 +187,7 @@
             // 
             // picBox_10
             // 
-            this.picBox_10.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_10.BackColor = System.Drawing.Color.LightGray;
             this.picBox_10.Enabled = false;
             this.picBox_10.Image = ((System.Drawing.Image)(resources.GetObject("picBox_10.Image")));
             this.picBox_10.Location = new System.Drawing.Point(116, 405);
@@ -196,7 +200,7 @@
             // 
             // picBox_20
             // 
-            this.picBox_20.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_20.BackColor = System.Drawing.Color.LightGray;
             this.picBox_20.Enabled = false;
             this.picBox_20.Image = ((System.Drawing.Image)(resources.GetObject("picBox_20.Image")));
             this.picBox_20.Location = new System.Drawing.Point(116, 655);
@@ -209,7 +213,7 @@
             // 
             // picBox_30
             // 
-            this.picBox_30.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_30.BackColor = System.Drawing.Color.LightGray;
             this.picBox_30.Enabled = false;
             this.picBox_30.Image = ((System.Drawing.Image)(resources.GetObject("picBox_30.Image")));
             this.picBox_30.Location = new System.Drawing.Point(116, 905);
@@ -222,7 +226,7 @@
             // 
             // picBox_11
             // 
-            this.picBox_11.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_11.BackColor = System.Drawing.Color.LightGray;
             this.picBox_11.Enabled = false;
             this.picBox_11.Image = ((System.Drawing.Image)(resources.GetObject("picBox_11.Image")));
             this.picBox_11.Location = new System.Drawing.Point(366, 405);
@@ -235,7 +239,7 @@
             // 
             // picBox_21
             // 
-            this.picBox_21.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_21.BackColor = System.Drawing.Color.LightGray;
             this.picBox_21.Enabled = false;
             this.picBox_21.Image = ((System.Drawing.Image)(resources.GetObject("picBox_21.Image")));
             this.picBox_21.Location = new System.Drawing.Point(366, 655);
@@ -248,7 +252,7 @@
             // 
             // picBox_31
             // 
-            this.picBox_31.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_31.BackColor = System.Drawing.Color.LightGray;
             this.picBox_31.Enabled = false;
             this.picBox_31.Image = ((System.Drawing.Image)(resources.GetObject("picBox_31.Image")));
             this.picBox_31.Location = new System.Drawing.Point(366, 905);
@@ -261,7 +265,7 @@
             // 
             // picBox_32
             // 
-            this.picBox_32.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_32.BackColor = System.Drawing.Color.LightGray;
             this.picBox_32.Enabled = false;
             this.picBox_32.Image = ((System.Drawing.Image)(resources.GetObject("picBox_32.Image")));
             this.picBox_32.Location = new System.Drawing.Point(616, 905);
@@ -274,7 +278,7 @@
             // 
             // picBox_33
             // 
-            this.picBox_33.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_33.BackColor = System.Drawing.Color.LightGray;
             this.picBox_33.Enabled = false;
             this.picBox_33.Image = ((System.Drawing.Image)(resources.GetObject("picBox_33.Image")));
             this.picBox_33.Location = new System.Drawing.Point(866, 905);
@@ -287,7 +291,7 @@
             // 
             // picBox_23
             // 
-            this.picBox_23.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_23.BackColor = System.Drawing.Color.LightGray;
             this.picBox_23.Enabled = false;
             this.picBox_23.Image = ((System.Drawing.Image)(resources.GetObject("picBox_23.Image")));
             this.picBox_23.Location = new System.Drawing.Point(866, 655);
@@ -300,7 +304,7 @@
             // 
             // picBox_13
             // 
-            this.picBox_13.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_13.BackColor = System.Drawing.Color.LightGray;
             this.picBox_13.Enabled = false;
             this.picBox_13.Image = ((System.Drawing.Image)(resources.GetObject("picBox_13.Image")));
             this.picBox_13.Location = new System.Drawing.Point(866, 405);
@@ -313,7 +317,7 @@
             // 
             // picBox_22
             // 
-            this.picBox_22.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_22.BackColor = System.Drawing.Color.LightGray;
             this.picBox_22.Enabled = false;
             this.picBox_22.Image = ((System.Drawing.Image)(resources.GetObject("picBox_22.Image")));
             this.picBox_22.Location = new System.Drawing.Point(616, 655);
@@ -326,7 +330,7 @@
             // 
             // picBox_12
             // 
-            this.picBox_12.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_12.BackColor = System.Drawing.Color.LightGray;
             this.picBox_12.Enabled = false;
             this.picBox_12.Image = ((System.Drawing.Image)(resources.GetObject("picBox_12.Image")));
             this.picBox_12.Location = new System.Drawing.Point(616, 405);
@@ -339,7 +343,7 @@
             // 
             // picBox_00
             // 
-            this.picBox_00.BackColor = System.Drawing.SystemColors.Control;
+            this.picBox_00.BackColor = System.Drawing.Color.LightGray;
             this.picBox_00.Enabled = false;
             this.picBox_00.Image = ((System.Drawing.Image)(resources.GetObject("picBox_00.Image")));
             this.picBox_00.Location = new System.Drawing.Point(116, 155);
@@ -349,6 +353,29 @@
             this.picBox_00.TabIndex = 0;
             this.picBox_00.TabStop = false;
             this.picBox_00.Click += new System.EventHandler(this.picBox_XX_onClick);
+            // 
+            // lbl_right
+            // 
+            this.lbl_right.AutoSize = true;
+            this.lbl_right.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_right.Location = new System.Drawing.Point(45, 335);
+            this.lbl_right.Name = "lbl_right";
+            this.lbl_right.Size = new System.Drawing.Size(101, 13);
+            this.lbl_right.TabIndex = 7;
+            this.lbl_right.Text = "Paare gefunden:";
+            // 
+            // txtBox_right
+            // 
+            this.txtBox_right.Enabled = false;
+            this.txtBox_right.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBox_right.Location = new System.Drawing.Point(48, 362);
+            this.txtBox_right.Name = "txtBox_right";
+            this.txtBox_right.ReadOnly = true;
+            this.txtBox_right.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtBox_right.Size = new System.Drawing.Size(143, 53);
+            this.txtBox_right.TabIndex = 8;
+            this.txtBox_right.Text = "0";
+            this.txtBox_right.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frm_Memory
             // 
@@ -424,6 +451,8 @@
         private System.Windows.Forms.Label lbl_solution;
         private System.Windows.Forms.Button btn_start;
         private System.Windows.Forms.Timer tmr_colour;
+        private System.Windows.Forms.TextBox txtBox_right;
+        private System.Windows.Forms.Label lbl_right;
 
         public System.Windows.Forms.PictureBox PicBox_01
         {
