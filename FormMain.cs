@@ -297,7 +297,6 @@ namespace Memory
 
             if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
             {
-
                 select = "";
                 picBox.Image = null;
                 picBox.Enabled = false;
@@ -305,8 +304,6 @@ namespace Memory
                 temp.Image = null;
                 temp.Enabled = false;
                 temp.Visible = false;
-                
-
             }
 
             frm_paint(Color.LightGray, picBox, temp);
