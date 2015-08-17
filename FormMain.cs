@@ -285,7 +285,7 @@ namespace Memory
                         MemoryHelp.ProcessFile(box, pathbg);
                     }
                 }
-            }            
+            }
         }
 
         private void tmr_colour_Tick(object sender, EventArgs e)

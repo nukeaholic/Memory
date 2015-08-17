@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Memory));
             this.pnl_menu = new System.Windows.Forms.Panel();
+            this.txtBox_right = new System.Windows.Forms.TextBox();
+            this.lbl_right = new System.Windows.Forms.Label();
             this.btn_start = new System.Windows.Forms.Button();
             this.btn_quit_main = new System.Windows.Forms.Button();
             this.lbl_Turns = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.picBox_22 = new System.Windows.Forms.PictureBox();
             this.picBox_12 = new System.Windows.Forms.PictureBox();
             this.picBox_00 = new System.Windows.Forms.PictureBox();
-            this.lbl_right = new System.Windows.Forms.Label();
-            this.txtBox_right = new System.Windows.Forms.TextBox();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_02)).BeginInit();
@@ -86,6 +86,29 @@
             this.pnl_menu.Name = "pnl_menu";
             this.pnl_menu.Size = new System.Drawing.Size(217, 901);
             this.pnl_menu.TabIndex = 16;
+            // 
+            // txtBox_right
+            // 
+            this.txtBox_right.Enabled = false;
+            this.txtBox_right.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBox_right.Location = new System.Drawing.Point(48, 362);
+            this.txtBox_right.Name = "txtBox_right";
+            this.txtBox_right.ReadOnly = true;
+            this.txtBox_right.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtBox_right.Size = new System.Drawing.Size(143, 53);
+            this.txtBox_right.TabIndex = 8;
+            this.txtBox_right.Text = "0";
+            this.txtBox_right.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lbl_right
+            // 
+            this.lbl_right.AutoSize = true;
+            this.lbl_right.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_right.Location = new System.Drawing.Point(45, 335);
+            this.lbl_right.Name = "lbl_right";
+            this.lbl_right.Size = new System.Drawing.Size(101, 13);
+            this.lbl_right.TabIndex = 7;
+            this.lbl_right.Text = "Paare gefunden:";
             // 
             // btn_start
             // 
@@ -142,7 +165,7 @@
             // 
             // tmr_colour
             // 
-            this.tmr_colour.Interval = 500;
+            this.tmr_colour.Interval = 250;
             this.tmr_colour.Tick += new System.EventHandler(this.tmr_colour_Tick);
             // 
             // picBox_01
@@ -353,29 +376,6 @@
             this.picBox_00.TabIndex = 0;
             this.picBox_00.TabStop = false;
             this.picBox_00.Click += new System.EventHandler(this.picBox_XX_onClick);
-            // 
-            // lbl_right
-            // 
-            this.lbl_right.AutoSize = true;
-            this.lbl_right.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_right.Location = new System.Drawing.Point(45, 335);
-            this.lbl_right.Name = "lbl_right";
-            this.lbl_right.Size = new System.Drawing.Size(101, 13);
-            this.lbl_right.TabIndex = 7;
-            this.lbl_right.Text = "Paare gefunden:";
-            // 
-            // txtBox_right
-            // 
-            this.txtBox_right.Enabled = false;
-            this.txtBox_right.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_right.Location = new System.Drawing.Point(48, 362);
-            this.txtBox_right.Name = "txtBox_right";
-            this.txtBox_right.ReadOnly = true;
-            this.txtBox_right.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtBox_right.Size = new System.Drawing.Size(143, 53);
-            this.txtBox_right.TabIndex = 8;
-            this.txtBox_right.Text = "0";
-            this.txtBox_right.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frm_Memory
             // 
