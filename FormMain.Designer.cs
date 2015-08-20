@@ -165,7 +165,7 @@
             // 
             // tmr_colour
             // 
-            this.tmr_colour.Interval = 250;
+            this.tmr_colour.Interval = 75;
             this.tmr_colour.Tick += new System.EventHandler(this.tmr_colour_Tick);
             // 
             // picBox_01

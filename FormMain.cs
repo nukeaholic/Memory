@@ -17,11 +17,6 @@ namespace Memory
     public partial class frm_Memory : Form
     {
 
-
-        private string pathbg = "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\background.jpg";
-        private List<PictureBox> picboxes = new List<PictureBox>();
-        private List <Array> flaggen = new List<Array>();
-
         private string[,] austria = new string[1, 2] { { "Austria", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Austria.png" } };
         private string[,] belgium = new string[1, 2] { { "Belgium", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Belgium.png" } };
         private string[,] czech = new string[1, 2] { { "Czech Republic", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\CzechRepublic.png" } };
@@ -43,18 +38,29 @@ namespace Memory
         private string[,] uk = new string[1, 2] { { "United Kingdom", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\UK.png" } };
 
         private List<string> quest = new List<string>();
+        private List<PictureBox> picboxes = new List<PictureBox>();
+        private List<Array> flaggen = new List<Array>();
+
+        private bool flip = true;
+        private bool flop = true;
+        private bool flap = true;
 
         private int f = 0;
         private int i = 0;
-        private bool flip = true;
         private int move_counter = 0;
-        private string select;
-        private bool flop = true;
-        private PictureBox temp;
-        PictureBox current;
         private int wrong_move = 0;
         private int bla = 1;
-        PictureBox picBox;
+        private int iff = 0;
+
+        private PictureBox temp;
+        private PictureBox current;
+        private PictureBox picBox;
+
+        private Color colour;
+
+        private string select;
+        private string pathbg = "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\background.jpg";
+
 
         //On Load
         protected override void OnLoad(EventArgs e)
@@ -189,10 +195,17 @@ namespace Memory
 
         private void paint(string text, PictureBox box)
         {
+            Rectangle rect1 = new Rectangle(0,0,200,200);
+
             //e.Graphics.DrawString(text, new Font("Arial", 20), Brushes.Black, new Point(1, 100));
+            StringFormat format = new StringFormat();
+            format.LineAlignment = StringAlignment.Center;
+            format.Alignment = StringAlignment.Center;
+
+            //g.DrawString(text, font, Brushes.Black, rect, stringFormat);
 
             System.Drawing.Graphics g = box.CreateGraphics();
-            g.DrawString(text, new Font("Arial", 20), Brushes.Black, new Point(1, 100));                
+            g.DrawString(text, new Font("Arial", 20), Brushes.Black, rect1, format);                
 
         }
 
@@ -226,10 +239,15 @@ namespace Memory
             }
 
             else{
+                foreach (PictureBox box in picboxes){
+                    box.Enabled = false;
+                    repaint(box);
+                }
 
                 if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
                 {
-                    frm_paint(Color.PaleGreen, picBox, temp);
+                    colour = Color.PaleGreen;
+                    frm_paint(colour, picBox, temp);
                     tmr_colour.Enabled = true;
                     tmr_colour.Start();
                     //MessageBox.Show("RICHTIG");
@@ -249,8 +267,8 @@ namespace Memory
 
                 else
                 {
-
-                    frm_paint(Color.IndianRed, picBox, temp);
+                    colour = Color.IndianRed;
+                    frm_paint(colour, picBox, temp);
                     tmr_colour.Enabled = true;
                     tmr_colour.Start();
                     //MessageBox.Show("FALSCH");
@@ -272,43 +290,77 @@ namespace Memory
                     MessageBox.Show("Du hast es geschafft!\n\nDu hast nur " + move_counter + " Züge gebraucht!\n\nDu hast " + wrong_move + " Fehler gemacht.");
                     
                     btn_start.Enabled = true;
-                    this.Close();
+                    move_counter = 0;
+                    txtBox_Turns.Text = move_counter.ToString();
+                    f = 0;
+                    txtBox_right.Text = f.ToString();
+                    wrong_move = 0;
+                    //this.Close();
                     foreach (PictureBox box in picboxes)
                     {
-                        move_counter = 0;
-                        txtBox_Turns.Text = move_counter.ToString();
-                        f = 0;
-                        txtBox_right.Text = f.ToString();
+                        
+                        
                         box.Visible = true;
                         box.Tag = null;
                         box.BackColor = Color.LightGray;
-                        MemoryHelp.ProcessFile(box, pathbg);
+                        MemoryHelp.ProcessFile(box, pathbg);                        
                     }
+                    picboxes.Clear();
+                    flaggen.Clear();
                 }
             }
         }
 
         private void tmr_colour_Tick(object sender, EventArgs e)
         {
-
-            tmr_colour.Stop();
-            tmr_colour.Enabled = false;
-
-
-            if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
+            
+            if (iff <= 4)
             {
-                select = "";
-                picBox.Image = null;
-                picBox.Enabled = false;
-                picBox.Visible = false;
-                temp.Image = null;
-                temp.Enabled = false;
-                temp.Visible = false;
+                iff++;
+                
+                if (flap == true)
+                {
+                    frm_paint(colour, picBox, temp);
+                    flap = false;
+                }
+                else
+                {
+                    frm_paint(Color.LightGray, picBox, temp);
+                    flap = true;
+                }
             }
+            else
+            {
+                tmr_colour.Stop();
+                tmr_colour.Enabled = false;
 
-            frm_paint(Color.LightGray, picBox, temp);
-            repaint(picBox);
-            repaint(temp);
+
+                if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
+                {
+                    select = "";
+                    picBox.Image = null;
+                    picBox.Enabled = false;
+                    picBox.Visible = false;
+                    temp.Image = null;
+                    temp.Enabled = false;
+                    temp.Visible = false;
+                }
+
+                foreach (PictureBox box in picboxes)
+                {
+                    box.Enabled = true;
+                    repaint(box);
+                }
+
+                frm_paint(Color.LightGray, picBox, temp);
+                repaint(picBox);
+                repaint(temp);
+
+                iff = 0;
+            }
+            
+            
+            
             
         }
 
