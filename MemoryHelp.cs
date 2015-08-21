@@ -16,12 +16,14 @@ namespace Memory
     public static class MemoryHelp
     {
         // Insert logic for processing found files here. 
+        //Zuweisen eines Bildes zu einer Picturebox
         public static void ProcessFile(PictureBox picBox, string path)
         {
             picBox.Image = Image.FromFile(path);
 
         }
 
+        //Zufällige Zahlen werden generiert
         public static void Shuffle<T>(this IList<T> list)
         {
             RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();

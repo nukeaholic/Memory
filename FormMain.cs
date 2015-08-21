@@ -17,25 +17,25 @@ namespace Memory
     public partial class frm_Memory : Form
     {
 
-        private string[,] austria = new string[1, 2] { { "Austria", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Austria.png" } };
-        private string[,] belgium = new string[1, 2] { { "Belgium", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Belgium.png" } };
-        private string[,] czech = new string[1, 2] { { "Czech Republic", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\CzechRepublic.png" } };
-        private string[,] denmark = new string[1, 2] { { "Denmark", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Denmark.png" } };
-        
-        private string[,] france = new string[1, 2] { { "France", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\France.png" } };
-        private string[,] germany = new string[1, 2] { { "Germany", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Germany.png" } };
-        private string[,] iceland = new string[1, 2] { { "Iceland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Iceland.png" } };
-        private string[,] ireland = new string[1, 2] { { "Ireland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Ireland.png" } };
-        
-        private string[,] luxembourg = new string[1, 2] { { "Luxembourg", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Luxembourg.png" } };
-        private string[,] netherlands = new string[1, 2] { { "Netherlands", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Netherlands.png" } };
-        private string[,] norway = new string[1, 2] { { "Norway", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Norway.png" } };
-        private string[,] portugal = new string[1, 2] { { "Portugal", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Portugal.png" } };
-        
-        private string[,] spain = new string[1, 2] { { "Spain", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Spain.png" } };
-        private string[,] sweden = new string[1, 2] { { "Sweden", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Sweden.png" } };
-        private string[,] switzerland = new string[1, 2] { { "Switzerland", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\Switzerland.png" } };
-        private string[,] uk = new string[1, 2] { { "United Kingdom", "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\UK.png" } };
+        private string[,] austria = new string[1, 2] { { "Austria", "..\\..\\Resources\\Austria.png" } };
+        private string[,] belgium = new string[1, 2] { { "Belgium", "..\\..\\Resources\\Belgium.png" } };
+        private string[,] czech = new string[1, 2] { { "Czech Republic", "..\\..\\Resources\\CzechRepublic.png" } };
+        private string[,] denmark = new string[1, 2] { { "Denmark", "..\\..\\Resources\\Denmark.png" } };
+
+        private string[,] france = new string[1, 2] { { "France", "..\\..\\Resources\\France.png" } };
+        private string[,] germany = new string[1, 2] { { "Germany", "..\\..\\Resources\\Germany.png" } };
+        private string[,] iceland = new string[1, 2] { { "Iceland", "..\\..\\Resources\\Iceland.png" } };
+        private string[,] ireland = new string[1, 2] { { "Ireland", "..\\..\\Resources\\Ireland.png" } };
+
+        private string[,] luxembourg = new string[1, 2] { { "Luxembourg", "..\\..\\Resources\\Luxembourg.png" } };
+        private string[,] netherlands = new string[1, 2] { { "Netherlands", "..\\..\\Resources\\Netherlands.png" } };
+        private string[,] norway = new string[1, 2] { { "Norway", "..\\..\\Resources\\Norway.png" } };
+        private string[,] portugal = new string[1, 2] { { "Portugal", "..\\..\\Resources\\Portugal.png" } };
+
+        private string[,] spain = new string[1, 2] { { "Spain", "..\\..\\Resources\\Spain.png" } };
+        private string[,] sweden = new string[1, 2] { { "Sweden", "..\\..\\Resources\\Sweden.png" } };
+        private string[,] switzerland = new string[1, 2] { { "Switzerland", "..\\..\\Resources\\Switzerland.png" } };
+        private string[,] uk = new string[1, 2] { { "United Kingdom", "..\\..\\Resources\\UK.png" } };
 
         private List<string> quest = new List<string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
@@ -59,7 +59,7 @@ namespace Memory
         private Color colour;
 
         private string select;
-        private string pathbg = "D:\\Users\\ehanss\\Documents\\Visual Studio 2013\\Projects\\Memory\\Memory\\Resources\\background.jpg";
+        private string pathbg = "..\\..\\Resources\\background.jpg";
 
 
         //On Load
@@ -69,7 +69,7 @@ namespace Memory
         }
 
         
-
+        //onPAINT um die Pictureboxen beim Start mit Bildern oder Text zu versehen
         protected override void OnPaint(PaintEventArgs e)
         {
             if (bla == 1){
@@ -92,12 +92,15 @@ namespace Memory
 
 
 
-
+        //btn_START um ein neues Spiel anzufangen
         private void btn_start_Click(object sender, EventArgs e)
         {
             ProcessDirectory();
         }
 
+
+        //Die Pictureboxen werden in eine Liste gefüllt, und die Daten zu den Bildern werden in eine Liste gefüllt
+        //Hier werden die Pictureboxen mit Text oder Bildern versehen
         public void ProcessDirectory()
         {
             btn_start.Enabled = false;
@@ -169,6 +172,8 @@ namespace Memory
             {
                 box.Enabled = true;
                 string[,] local = (string[,])flaggen[i];
+
+                //Bild wird eingefügt
                 if (flip == true)
                 {
                     MemoryHelp.ProcessFile(box, local[0, 1]);
@@ -176,6 +181,7 @@ namespace Memory
                     flip = false;
                 }
 
+                //Text wird eingefügt
                 else
                 {
                     box.Image = null;
@@ -193,6 +199,7 @@ namespace Memory
             }
         }
 
+        //Text wird auf die Pictureboxen gezeichnet
         private void paint(string text, PictureBox box)
         {
             Rectangle rect1 = new Rectangle(0,0,200,200);
@@ -209,6 +216,7 @@ namespace Memory
 
         }
 
+        //Die ausgewählten Pictureboxen werden in einer bestimmten Farbe angemalt
         private void frm_paint(Color colour, PictureBox PicBoxOne, PictureBox PicBoxTwo)
         {
             PicBoxOne.BackColor = colour;
@@ -217,14 +225,14 @@ namespace Memory
             repaint(PicBoxTwo);
         }
 
-        //picBox_XX_onCLICK
+        //picBox_XX_onCLICK Was passiert wenn man auf eine Picturebox klickt
         private void picBox_XX_onClick(object sender, EventArgs e)
         {
             picBox = (PictureBox)sender;
             //MessageBox.Show(picBox.Tag+"\n***\n"+lbl_quest.Text);
             
             
-
+            //Speichern der Bilderdaten bei nem ungeraden Klick
             if (flop == true){
 
                 current = (PictureBox)picBox;
@@ -238,12 +246,14 @@ namespace Memory
                 
             }
 
+            //Überprüfung der Daten der 2 ausgewählten Pictureboxen
             else{
                 foreach (PictureBox box in picboxes){
                     box.Enabled = false;
                     repaint(box);
                 }
 
+                //Wenn richtig Pictureboxen Grün anmalen und Timer starten
                 if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
                 {
                     colour = Color.PaleGreen;
@@ -265,6 +275,7 @@ namespace Memory
 
                 }
 
+                //Wenn richtig Pictureboxen Rot anmalen und Timer starten
                 else
                 {
                     colour = Color.IndianRed;
@@ -285,10 +296,12 @@ namespace Memory
                 temp.BorderStyle = BorderStyle.None;
                 repaint(temp);
 
+                //Wenn das Spiel vorbei ist
                 if (f == 8)
                 {
                     MessageBox.Show("Du hast es geschafft!\n\nDu hast nur " + move_counter + " Züge gebraucht!\n\nDu hast " + wrong_move + " Fehler gemacht.");
                     
+                    //Verschiedene Zählvariablen werden auf 0 gesetzt
                     btn_start.Enabled = true;
                     move_counter = 0;
                     txtBox_Turns.Text = move_counter.ToString();
@@ -296,24 +309,27 @@ namespace Memory
                     txtBox_right.Text = f.ToString();
                     wrong_move = 0;
                     //this.Close();
+
+                    //verschiedene Eingenschaften aller Pictureboxen werden auf 0 gesetzt
                     foreach (PictureBox box in picboxes)
                     {
-                        
-                        
                         box.Visible = true;
                         box.Tag = null;
                         box.BackColor = Color.LightGray;
-                        MemoryHelp.ProcessFile(box, pathbg);                        
+                        MemoryHelp.ProcessFile(box, pathbg);
+                        box.Enabled = false;
                     }
+                    //Hier wird der Inhalt der Listen gelöscht
                     picboxes.Clear();
                     flaggen.Clear();
                 }
             }
         }
 
+        //Wenn der Timer einen Intervall gemacht hat
         private void tmr_colour_Tick(object sender, EventArgs e)
         {
-            
+            //Sorgt dafür dass die Pictureboxen blinken
             if (iff <= 4)
             {
                 iff++;
@@ -329,6 +345,9 @@ namespace Memory
                     flap = true;
                 }
             }
+
+            //Wenn die Pictureboxen fertig geblinkt haben werden sie auf die Standardfarbe zurückgesetzt
+            //Wenn die richtig gelöst wurde, verschwinden die Pictureboxen
             else
             {
                 tmr_colour.Stop();
@@ -365,7 +384,7 @@ namespace Memory
         }
 
         
-
+        //Der Text auf der Picturebox wird nur erneuert, da er verschwindet wenn man etwas an der Picturebox verändert
         private void repaint(PictureBox box)
         {
             if (box.Image == null)
