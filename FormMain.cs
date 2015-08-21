@@ -10,6 +10,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Resources;
 
 
 namespace Memory
@@ -106,9 +108,21 @@ namespace Memory
             btn_start.Enabled = false;
 
 
-            // Process the list of files found in the directory. 
 
-            //string[] fileEntries = Directory.GetFiles(targetDirectory);
+            //Assembly assem = this.GetType().Assembly;
+            //foreach (string resourceName in assem.GetManifestResourceNames())
+            //{
+            //    MessageBox.Show(resourceName);
+            //}
+
+            //ResXResourceReader rsxr = new ResXResourceReader("..\\..\\Properties\\Resources.resx"); // or whatever it's called
+            //string msg = "";
+            //foreach (DictionaryEntry de in rsxr)
+            //{
+            //    msg += de.Key.ToString() + " : " + de.Value.ToString() + "\r\n";
+            //}
+            //rsxr.Close();
+            //MessageBox.Show(msg);  
 
 
 
