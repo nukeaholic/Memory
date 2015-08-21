@@ -347,13 +347,13 @@ namespace Memory
             }
 
             //Wenn die Pictureboxen fertig geblinkt haben werden sie auf die Standardfarbe zurückgesetzt
-            //Wenn die richtig gelöst wurde, verschwinden die Pictureboxen
             else
             {
                 tmr_colour.Stop();
                 tmr_colour.Enabled = false;
+                
 
-
+                //Wenn die richtig gelöst wurde, verschwinden die Pictureboxen
                 if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
                 {
                     select = "";
@@ -377,10 +377,6 @@ namespace Memory
 
                 iff = 0;
             }
-            
-            
-            
-            
         }
 
         
