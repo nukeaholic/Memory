@@ -39,6 +39,9 @@ namespace Memory
         private string[,] switzerland = new string[1, 2] { { "Switzerland", "..\\..\\Resources\\Switzerland.png" } };
         private string[,] uk = new string[1, 2] { { "United Kingdom", "..\\..\\Resources\\UK.png" } };
 
+        private string select;
+        private string pathbg = "..\\..\\Resources\\background.jpg";
+
         private List<string> quest = new List<string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
         private List<Array> flaggen = new List<Array>();
@@ -47,7 +50,7 @@ namespace Memory
         private bool flop = true;
         private bool flap = true;
 
-        private int f = 0;
+        private int right_move = 0;
         private int i = 0;
         private int move_counter = 0;
         private int wrong_move = 0;
@@ -60,8 +63,7 @@ namespace Memory
 
         private Color colour;
 
-        private string select;
-        private string pathbg = "..\\..\\Resources\\background.jpg";
+        
 
 
         //On Load
@@ -86,7 +88,7 @@ namespace Memory
         }
        
 
-        //btn_QUIT
+        //btn_QUIT zum beenden des Programms
         private void btn_quit_main_onClick(object sender, EventArgs e)
         {
             this.Close();
@@ -109,6 +111,19 @@ namespace Memory
 
 
 
+            ResourceSet rs = new ResourceSet("items.resources");
+
+
+            // Create an IDictionaryEnumerator to read the data in the ResourceSet.
+            IDictionaryEnumerator id = rs.GetEnumerator();
+
+            // Iterate through the ResourceSet and display the contents to the console.  
+            while (id.MoveNext())
+                Console.WriteLine("\n[{0}] \t{1}", id.Key, id.Value);
+
+            rs.Close();
+
+
             //Assembly assem = this.GetType().Assembly;
             //foreach (string resourceName in assem.GetManifestResourceNames())
             //{
@@ -122,7 +137,7 @@ namespace Memory
             //    msg += de.Key.ToString() + " : " + de.Value.ToString() + "\r\n";
             //}
             //rsxr.Close();
-            //MessageBox.Show(msg);  
+            //MessageBox.Show(msg);
 
 
 
@@ -218,12 +233,10 @@ namespace Memory
         {
             Rectangle rect1 = new Rectangle(0,0,200,200);
 
-            //e.Graphics.DrawString(text, new Font("Arial", 20), Brushes.Black, new Point(1, 100));
             StringFormat format = new StringFormat();
             format.LineAlignment = StringAlignment.Center;
             format.Alignment = StringAlignment.Center;
 
-            //g.DrawString(text, font, Brushes.Black, rect, stringFormat);
 
             System.Drawing.Graphics g = box.CreateGraphics();
             g.DrawString(text, new Font("Arial", 20), Brushes.Black, rect1, format);                
@@ -276,20 +289,11 @@ namespace Memory
                     tmr_colour.Start();
                     //MessageBox.Show("RICHTIG");
 
-                    //select = "";
-                    //picBox.Image = null;
-                    //picBox.Enabled = false;
-                    //picBox.Visible = false;
-                    //temp.Image = null;
-                    //temp.Enabled = false;
-                    //temp.Visible = false;
-                    f++;
-                    txtBox_right.Text = f.ToString();
-
-
+                    right_move++;
+                    txtBox_right.Text = right_move.ToString();
                 }
 
-                //Wenn richtig Pictureboxen Rot anmalen und Timer starten
+                //Wenn falsch Pictureboxen Rot anmalen und Timer starten
                 else
                 {
                     colour = Color.IndianRed;
@@ -300,9 +304,6 @@ namespace Memory
                     select = "";
                     wrong_move++;
                 }
-                
-
-                
 
                 move_counter++;
                 txtBox_Turns.Text = move_counter.ToString();
@@ -311,7 +312,7 @@ namespace Memory
                 repaint(temp);
 
                 //Wenn das Spiel vorbei ist
-                if (f == 8)
+                if (right_move == 8)
                 {
                     MessageBox.Show("Du hast es geschafft!\n\nDu hast nur " + move_counter + " Züge gebraucht!\n\nDu hast " + wrong_move + " Fehler gemacht.");
                     
@@ -319,8 +320,8 @@ namespace Memory
                     btn_start.Enabled = true;
                     move_counter = 0;
                     txtBox_Turns.Text = move_counter.ToString();
-                    f = 0;
-                    txtBox_right.Text = f.ToString();
+                    right_move = 0;
+                    txtBox_right.Text = right_move.ToString();
                     wrong_move = 0;
                     //this.Close();
 
