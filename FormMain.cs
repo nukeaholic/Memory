@@ -111,17 +111,17 @@ namespace Memory
 
 
 
-            ResourceSet rs = new ResourceSet("items.resources");
+            //ResourceSet rs = new ResourceSet("items.resources");
 
 
-            // Create an IDictionaryEnumerator to read the data in the ResourceSet.
-            IDictionaryEnumerator id = rs.GetEnumerator();
+            //// Create an IDictionaryEnumerator to read the data in the ResourceSet.
+            //IDictionaryEnumerator id = rs.GetEnumerator();
 
-            // Iterate through the ResourceSet and display the contents to the console.  
-            while (id.MoveNext())
-                Console.WriteLine("\n[{0}] \t{1}", id.Key, id.Value);
+            //// Iterate through the ResourceSet and display the contents to the console.  
+            //while (id.MoveNext())
+            //    Console.WriteLine("\n[{0}] \t{1}", id.Key, id.Value);
 
-            rs.Close();
+            //rs.Close();
 
 
             //Assembly assem = this.GetType().Assembly;
