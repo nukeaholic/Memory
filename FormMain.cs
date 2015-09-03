@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Resources;
+using Memory.Properties;
 
 
 namespace Memory
@@ -19,32 +20,32 @@ namespace Memory
     public partial class frm_Memory : Form
     {
 
-        private string[,] austria = new string[1, 2] { { "Austria", "..\\..\\Resources\\Austria.png" } };
-        private string[,] belgium = new string[1, 2] { { "Belgium", "..\\..\\Resources\\Belgium.png" } };
-        private string[,] czech = new string[1, 2] { { "Czech Republic", "..\\..\\Resources\\CzechRepublic.png" } };
-        private string[,] denmark = new string[1, 2] { { "Denmark", "..\\..\\Resources\\Denmark.png" } };
+        //private string[,] austria = new string[1, 2] { { "Austria", "..\\..\\Resources\\Austria.png" } };
+        //private string[,] belgium = new string[1, 2] { { "Belgium", "..\\..\\Resources\\Belgium.png" } };
+        //private string[,] czech = new string[1, 2] { { "Czech Republic", "..\\..\\Resources\\CzechRepublic.png" } };
+        //private string[,] denmark = new string[1, 2] { { "Denmark", "..\\..\\Resources\\Denmark.png" } };
 
-        private string[,] france = new string[1, 2] { { "France", "..\\..\\Resources\\France.png" } };
-        private string[,] germany = new string[1, 2] { { "Germany", "..\\..\\Resources\\Germany.png" } };
-        private string[,] iceland = new string[1, 2] { { "Iceland", "..\\..\\Resources\\Iceland.png" } };
-        private string[,] ireland = new string[1, 2] { { "Ireland", "..\\..\\Resources\\Ireland.png" } };
+        //private string[,] france = new string[1, 2] { { "France", "..\\..\\Resources\\France.png" } };
+        //private string[,] germany = new string[1, 2] { { "Germany", "..\\..\\Resources\\Germany.png" } };
+        //private string[,] iceland = new string[1, 2] { { "Iceland", "..\\..\\Resources\\Iceland.png" } };
+        //private string[,] ireland = new string[1, 2] { { "Ireland", "..\\..\\Resources\\Ireland.png" } };
 
-        private string[,] luxembourg = new string[1, 2] { { "Luxembourg", "..\\..\\Resources\\Luxembourg.png" } };
-        private string[,] netherlands = new string[1, 2] { { "Netherlands", "..\\..\\Resources\\Netherlands.png" } };
-        private string[,] norway = new string[1, 2] { { "Norway", "..\\..\\Resources\\Norway.png" } };
-        private string[,] portugal = new string[1, 2] { { "Portugal", "..\\..\\Resources\\Portugal.png" } };
+        //private string[,] luxembourg = new string[1, 2] { { "Luxembourg", "..\\..\\Resources\\Luxembourg.png" } };
+        //private string[,] netherlands = new string[1, 2] { { "Netherlands", "..\\..\\Resources\\Netherlands.png" } };
+        //private string[,] norway = new string[1, 2] { { "Norway", "..\\..\\Resources\\Norway.png" } };
+        //private string[,] portugal = new string[1, 2] { { "Portugal", "..\\..\\Resources\\Portugal.png" } };
 
-        private string[,] spain = new string[1, 2] { { "Spain", "..\\..\\Resources\\Spain.png" } };
-        private string[,] sweden = new string[1, 2] { { "Sweden", "..\\..\\Resources\\Sweden.png" } };
-        private string[,] switzerland = new string[1, 2] { { "Switzerland", "..\\..\\Resources\\Switzerland.png" } };
-        private string[,] uk = new string[1, 2] { { "United Kingdom", "..\\..\\Resources\\UK.png" } };
+        //private string[,] spain = new string[1, 2] { { "Spain", "..\\..\\Resources\\Spain.png" } };
+        //private string[,] sweden = new string[1, 2] { { "Sweden", "..\\..\\Resources\\Sweden.png" } };
+        //private string[,] switzerland = new string[1, 2] { { "Switzerland", "..\\..\\Resources\\Switzerland.png" } };
+        //private string[,] uk = new string[1, 2] { { "United Kingdom", "..\\..\\Resources\\UK.png" } };
 
         private string select;
-        private string pathbg = "..\\..\\Resources\\background.jpg";
+        //private string pathbg = "..\\..\\Resources\\background.jpg";
 
         private List<string> quest = new List<string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
-        private List<Array> flaggen = new List<Array>();
+        private List<Bitmap> flaggen = new List<Bitmap>();
 
         private bool flip = true;
         private bool flop = true;
@@ -110,6 +111,10 @@ namespace Memory
             btn_start.Enabled = false;
 
 
+            foreach (Bitmap picture in Resources_Flags)
+            {
+
+            }
 
             //ResourceSet rs = new ResourceSet("items.resources");
 
@@ -119,9 +124,10 @@ namespace Memory
 
             //// Iterate through the ResourceSet and display the contents to the console.  
             //while (id.MoveNext())
-            //    Console.WriteLine("\n[{0}] \t{1}", id.Key, id.Value);
+            //    MessageBox.Show("\n[{0}] \t{1}" + id.Key + "\n\n" + id.Value);
 
             //rs.Close();
+
 
 
             //Assembly assem = this.GetType().Assembly;
@@ -129,6 +135,8 @@ namespace Memory
             //{
             //    MessageBox.Show(resourceName);
             //}
+
+
 
             //ResXResourceReader rsxr = new ResXResourceReader("..\\..\\Properties\\Resources.resx"); // or whatever it's called
             //string msg = "";
@@ -143,25 +151,25 @@ namespace Memory
 
             //Flaggen in Liste
 
-            flaggen.Add(austria);
-            flaggen.Add(belgium);
-            flaggen.Add(czech);
-            flaggen.Add(denmark);
+            //flaggen.Add(austria);
+            //flaggen.Add(belgium);
+            //flaggen.Add(czech);
+            //flaggen.Add(denmark);
 
-            flaggen.Add(france);
-            flaggen.Add(germany);
-            flaggen.Add(iceland);
-            flaggen.Add(ireland);
+            //flaggen.Add(france);
+            //flaggen.Add(germany);
+            //flaggen.Add(iceland);
+            //flaggen.Add(ireland);
 
-            flaggen.Add(luxembourg);
-            flaggen.Add(netherlands);
-            flaggen.Add(norway);
-            flaggen.Add(portugal);
+            //flaggen.Add(luxembourg);
+            //flaggen.Add(netherlands);
+            //flaggen.Add(norway);
+            //flaggen.Add(portugal);
 
-            flaggen.Add(spain);
-            flaggen.Add(sweden);
-            flaggen.Add(switzerland);
-            flaggen.Add(uk);
+            //flaggen.Add(spain);
+            //flaggen.Add(sweden);
+            //flaggen.Add(switzerland);
+            //flaggen.Add(uk);
 
 
             // Pictureboxes in Liste
@@ -331,7 +339,7 @@ namespace Memory
                         box.Visible = true;
                         box.Tag = null;
                         box.BackColor = Color.LightGray;
-                        MemoryHelp.ProcessFile(box, pathbg);
+                        box.Image = Resources_bg.background;
                         box.Enabled = false;
                     }
                     //Hier wird der Inhalt der Listen gelöscht
