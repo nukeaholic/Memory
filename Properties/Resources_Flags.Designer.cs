@@ -85,7 +85,7 @@ namespace Memory.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Czech_Republic {
             get {
-                object obj = ResourceManager.GetObject("Czech_Republic", resourceCulture);
+                object obj = ResourceManager.GetObject("Czech Republic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace Memory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap UK {
+        internal static System.Drawing.Bitmap United_Kingdom {
             get {
-                object obj = ResourceManager.GetObject("UK", resourceCulture);
+                object obj = ResourceManager.GetObject("United Kingdom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

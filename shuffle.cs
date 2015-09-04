@@ -1,29 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Memory
 {
-    public static class MemoryHelp
+    static class shuffle
     {
-        // Insert logic for processing found files here. 
-        //Zuweisen eines Bildes zu einer Picturebox
-        public static void ProcessFile(PictureBox picBox, string path)
-        {
-            picBox.Image = Image.FromFile(path);
-
-        }
-
-        //Zufällige Zahlen werden generiert
         public static void Shuffle<T>(this IList<T> list)
         {
             RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();

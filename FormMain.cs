@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Resources;
 using Memory.Properties;
+using System.Globalization;
 
 
 namespace Memory
@@ -20,32 +21,13 @@ namespace Memory
     public partial class frm_Memory : Form
     {
 
-        //private string[,] austria = new string[1, 2] { { "Austria", "..\\..\\Resources\\Austria.png" } };
-        //private string[,] belgium = new string[1, 2] { { "Belgium", "..\\..\\Resources\\Belgium.png" } };
-        //private string[,] czech = new string[1, 2] { { "Czech Republic", "..\\..\\Resources\\CzechRepublic.png" } };
-        //private string[,] denmark = new string[1, 2] { { "Denmark", "..\\..\\Resources\\Denmark.png" } };
-
-        //private string[,] france = new string[1, 2] { { "France", "..\\..\\Resources\\France.png" } };
-        //private string[,] germany = new string[1, 2] { { "Germany", "..\\..\\Resources\\Germany.png" } };
-        //private string[,] iceland = new string[1, 2] { { "Iceland", "..\\..\\Resources\\Iceland.png" } };
-        //private string[,] ireland = new string[1, 2] { { "Ireland", "..\\..\\Resources\\Ireland.png" } };
-
-        //private string[,] luxembourg = new string[1, 2] { { "Luxembourg", "..\\..\\Resources\\Luxembourg.png" } };
-        //private string[,] netherlands = new string[1, 2] { { "Netherlands", "..\\..\\Resources\\Netherlands.png" } };
-        //private string[,] norway = new string[1, 2] { { "Norway", "..\\..\\Resources\\Norway.png" } };
-        //private string[,] portugal = new string[1, 2] { { "Portugal", "..\\..\\Resources\\Portugal.png" } };
-
-        //private string[,] spain = new string[1, 2] { { "Spain", "..\\..\\Resources\\Spain.png" } };
-        //private string[,] sweden = new string[1, 2] { { "Sweden", "..\\..\\Resources\\Sweden.png" } };
-        //private string[,] switzerland = new string[1, 2] { { "Switzerland", "..\\..\\Resources\\Switzerland.png" } };
-        //private string[,] uk = new string[1, 2] { { "United Kingdom", "..\\..\\Resources\\UK.png" } };
 
         private string select;
-        //private string pathbg = "..\\..\\Resources\\background.jpg";
+
+        private List<KeyValuePair<String, Bitmap>> myDico = new List<KeyValuePair<String, Bitmap>>();
 
         private List<string> quest = new List<string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
-        private List<Bitmap> flaggen = new List<Bitmap>();
 
         private bool flip = true;
         private bool flop = true;
@@ -61,6 +43,8 @@ namespace Memory
         private PictureBox temp;
         private PictureBox current;
         private PictureBox picBox;
+
+
 
         private Color colour;
 
@@ -111,67 +95,21 @@ namespace Memory
             btn_start.Enabled = false;
 
 
-            foreach (Bitmap picture in Resources_Flags)
-            {
+            ResourceSet resourceSet = Resources_Flags.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
 
+            
+
+            foreach (DictionaryEntry entry in resourceSet)
+            {
+                Bitmap image = (Bitmap)entry.Value;
+                String name = (String)entry.Key;
+
+                KeyValuePair<String, Bitmap> keyValuePair = new KeyValuePair<String, Bitmap>(name, image);
+
+                myDico.Add(keyValuePair);
             }
 
-            //ResourceSet rs = new ResourceSet("items.resources");
-
-
-            //// Create an IDictionaryEnumerator to read the data in the ResourceSet.
-            //IDictionaryEnumerator id = rs.GetEnumerator();
-
-            //// Iterate through the ResourceSet and display the contents to the console.  
-            //while (id.MoveNext())
-            //    MessageBox.Show("\n[{0}] \t{1}" + id.Key + "\n\n" + id.Value);
-
-            //rs.Close();
-
-
-
-            //Assembly assem = this.GetType().Assembly;
-            //foreach (string resourceName in assem.GetManifestResourceNames())
-            //{
-            //    MessageBox.Show(resourceName);
-            //}
-
-
-
-            //ResXResourceReader rsxr = new ResXResourceReader("..\\..\\Properties\\Resources.resx"); // or whatever it's called
-            //string msg = "";
-            //foreach (DictionaryEntry de in rsxr)
-            //{
-            //    msg += de.Key.ToString() + " : " + de.Value.ToString() + "\r\n";
-            //}
-            //rsxr.Close();
-            //MessageBox.Show(msg);
-
-
-
-            //Flaggen in Liste
-
-            //flaggen.Add(austria);
-            //flaggen.Add(belgium);
-            //flaggen.Add(czech);
-            //flaggen.Add(denmark);
-
-            //flaggen.Add(france);
-            //flaggen.Add(germany);
-            //flaggen.Add(iceland);
-            //flaggen.Add(ireland);
-
-            //flaggen.Add(luxembourg);
-            //flaggen.Add(netherlands);
-            //flaggen.Add(norway);
-            //flaggen.Add(portugal);
-
-            //flaggen.Add(spain);
-            //flaggen.Add(sweden);
-            //flaggen.Add(switzerland);
-            //flaggen.Add(uk);
-
-
+            
             // Pictureboxes in Liste
 
             picboxes.Add(picBox_00);
@@ -194,8 +132,8 @@ namespace Memory
             picboxes.Add(picBox_32);
             picboxes.Add(picBox_33);
 
-            MemoryHelp.Shuffle(flaggen);
-            MemoryHelp.Shuffle(picboxes);
+            shuffle.Shuffle(myDico);
+            shuffle.Shuffle(picboxes);
 
             // loop über fileEntries as pfad
             // Erstellung von Dict
@@ -208,13 +146,12 @@ namespace Memory
             foreach (PictureBox box in picboxes)
             {
                 box.Enabled = true;
-                string[,] local = (string[,])flaggen[i];
 
                 //Bild wird eingefügt
                 if (flip == true)
                 {
-                    MemoryHelp.ProcessFile(box, local[0, 1]);
-                    box.Tag = local[0, 0];
+                    box.Image = myDico[i].Value;
+                    box.Tag = myDico[i].Key;
                     flip = false;
                 }
 
@@ -226,9 +163,9 @@ namespace Memory
                     box.Refresh();
 
                     //e.Graphics.DrawString(local[0, 0], new Font("Arial", 20), Brushes.Black, new Point(1, 100));
-                    paint(local[0, 0], box);                    
+                    paint(myDico[i].Key, box);
 
-                    box.Tag = local[0, 0];
+                    box.Tag = myDico[i].Key;
 
                     flip = true;
                     i++;
@@ -344,7 +281,7 @@ namespace Memory
                     }
                     //Hier wird der Inhalt der Listen gelöscht
                     picboxes.Clear();
-                    flaggen.Clear();
+                    myDico.Clear();
                 }
             }
         }
@@ -412,5 +349,7 @@ namespace Memory
                 paint(box.Tag.ToString(), box);
             }            
         }
+
+        
     }
 }
