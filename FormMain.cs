@@ -61,10 +61,10 @@ namespace Memory
         //onPAINT um die Pictureboxen beim Start mit Bildern oder Text zu versehen
         protected override void OnPaint(PaintEventArgs e)
         {
-            if (bla == 1){
-                ProcessDirectory();
-                bla++;
-            }
+            //if (bla == 1){
+            //    ProcessDirectory();
+            //    bla++;
+            //}
         }        
 
         public frm_Memory()
@@ -146,6 +146,7 @@ namespace Memory
             foreach (PictureBox box in picboxes)
             {
                 box.Enabled = true;
+                box.Image = Resources_bg.background;
 
                 //Bild wird eingefügt
                 if (flip == true)
@@ -166,6 +167,7 @@ namespace Memory
                     paint(myDico[i].Key, box);
 
                     box.Tag = myDico[i].Key;
+
 
                     flip = true;
                     i++;
@@ -211,7 +213,6 @@ namespace Memory
                 select = picBox.Tag.ToString();
                 flop = false;
                 temp = picBox;
-
 
                 picBox.BorderStyle = BorderStyle.Fixed3D;
                 repaint(picBox);
@@ -349,7 +350,5 @@ namespace Memory
                 paint(box.Tag.ToString(), box);
             }            
         }
-
-        
     }
 }
