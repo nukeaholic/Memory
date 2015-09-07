@@ -343,6 +343,8 @@ namespace Memory
             }            
         }
 
+
+        // Die Timer werden aktiviert damit die ausgewählten Pictureboxen in einer Farbe blinken
         private void picboxblink(Color colour)
         {
             frm_paint(colour, picBox, temp);
