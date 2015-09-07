@@ -224,10 +224,8 @@ namespace Memory
                 //Wenn richtig Pictureboxen Grün anmalen und Timer starten
                 if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
                 {
-                    colour = Color.PaleGreen;
-                    frm_paint(colour, picBox, temp);
-                    tmr_colour.Enabled = true;
-                    tmr_colour.Start();
+                    colour = Color.LightGreen;
+                    picboxblink(colour);
                     //MessageBox.Show("RICHTIG");
 
                     right_move++;
@@ -238,10 +236,9 @@ namespace Memory
                 else
                 {
                     colour = Color.IndianRed;
-                    frm_paint(colour, picBox, temp);
-                    tmr_colour.Enabled = true;
-                    tmr_colour.Start();
+                    picboxblink(colour);
                     //MessageBox.Show("FALSCH");
+
                     select = "";
                     wrong_move++;
                 }
@@ -344,6 +341,14 @@ namespace Memory
                 box.Refresh();
                 paint(box.Tag.ToString(), box);
             }            
+        }
+
+        private void picboxblink(Color colour)
+        {
+            frm_paint(colour, picBox, temp);
+            tmr_colour.Enabled = true;
+            tmr_colour.Start();
+
         }
     }
 }
