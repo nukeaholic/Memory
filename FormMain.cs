@@ -61,10 +61,11 @@ namespace Memory
         //onPAINT um die Pictureboxen beim Start mit Bildern oder Text zu versehen
         protected override void OnPaint(PaintEventArgs e)
         {
-            //if (bla == 1){
-            //    ProcessDirectory();
-            //    bla++;
-            //}
+            if (bla == 1)
+            {
+                ProcessDirectory();
+                bla++;
+            }
         }        
 
         public frm_Memory()
@@ -135,13 +136,7 @@ namespace Memory
             shuffle.Shuffle(myDico);
             shuffle.Shuffle(picboxes);
 
-            // loop über fileEntries as pfad
-            // Erstellung von Dict
-            //  -> Key Picturebox[i]
-            //  -> Value pfad
-
-
-
+            
             i = 0;
             foreach (PictureBox box in picboxes)
             {
