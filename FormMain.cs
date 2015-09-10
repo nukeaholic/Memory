@@ -25,7 +25,6 @@ namespace Memory
         private string select;
 
         private List<KeyValuePair<String, Bitmap>> myDico = new List<KeyValuePair<String, Bitmap>>();
-
         private List<string> quest = new List<string>();
         private List<PictureBox> picboxes = new List<PictureBox>();
 
@@ -33,9 +32,9 @@ namespace Memory
         private bool flop = true;
         private bool flap = true;
 
-        private int right_move = 0;
         private int i = 0;
         private int move_counter = 0;
+        private int right_move = 0;
         private int wrong_move = 0;
         private int bla = 1;
         private int iff = 0;
@@ -43,6 +42,8 @@ namespace Memory
         private PictureBox temp;
         private PictureBox current;
         private PictureBox picBox;
+
+        private Bitmap picture;
 
 
 
@@ -84,7 +85,7 @@ namespace Memory
 
         //btn_START um ein neues Spiel anzufangen
         private void btn_start_Click(object sender, EventArgs e)
-        {
+        { 
             ProcessDirectory();
         }
 
@@ -141,32 +142,22 @@ namespace Memory
             foreach (PictureBox box in picboxes)
             {
                 box.Enabled = true;
-                box.Image = Resources_bg.background;
 
                 //Bild wird eingefügt
+
+                box.Image = Resources_bg.background;
+                box.Tag = myDico[i].Key;
+
                 if (flip == true)
                 {
-                    box.Image = myDico[i].Value;
-                    box.Tag = myDico[i].Key;
                     flip = false;
                 }
-
-                //Text wird eingefügt
                 else
                 {
-                    box.Image = null;
-
-                    box.Refresh();
-
-                    //e.Graphics.DrawString(local[0, 0], new Font("Arial", 20), Brushes.Black, new Point(1, 100));
-                    paint(myDico[i].Key, box);
-
-                    box.Tag = myDico[i].Key;
-
-
-                    flip = true;
                     i++;
+                    flip = true;
                 }
+                
             }
         }
 
@@ -211,6 +202,8 @@ namespace Memory
 
                 picBox.BorderStyle = BorderStyle.Fixed3D;
                 repaint(picBox);
+
+                aufdecken(picBox);
                 
             }
 
@@ -220,7 +213,7 @@ namespace Memory
                     box.Enabled = false;
                     repaint(box);
                 }
-
+                aufdecken(picBox);
                 //Wenn richtig Pictureboxen Grün anmalen und Timer starten
                 if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
                 {
@@ -249,32 +242,36 @@ namespace Memory
                 temp.BorderStyle = BorderStyle.None;
                 repaint(temp);
 
+                
+
                 //Wenn das Spiel vorbei ist
                 if (right_move == 8)
                 {
                     MessageBox.Show("Du hast es geschafft!\n\nDu hast nur " + move_counter + " Züge gebraucht!\n\nDu hast " + wrong_move + " Fehler gemacht.");
                     
                     //Verschiedene Zählvariablen werden auf 0 gesetzt
-                    btn_start.Enabled = true;
+                    //btn_start.Enabled = true;
                     move_counter = 0;
                     txtBox_Turns.Text = move_counter.ToString();
                     right_move = 0;
                     txtBox_right.Text = right_move.ToString();
                     wrong_move = 0;
-                    //this.Close();
 
                     //verschiedene Eingenschaften aller Pictureboxen werden auf 0 gesetzt
                     foreach (PictureBox box in picboxes)
                     {
                         box.Visible = true;
+                        box.Enabled = true;
                         box.Tag = null;
-                        box.BackColor = Color.LightGray;
-                        box.Image = Resources_bg.background;
-                        box.Enabled = false;
+                        box.Image = null;
+                                            
                     }
+
                     //Hier wird der Inhalt der Listen gelöscht
                     picboxes.Clear();
                     myDico.Clear();
+
+                    ProcessDirectory();
                 }
             }
         }
@@ -283,53 +280,59 @@ namespace Memory
         private void tmr_colour_Tick(object sender, EventArgs e)
         {
             //Sorgt dafür dass die Pictureboxen blinken
-            if (iff <= 4)
-            {
-                iff++;
+            //if (iff <= 4)
+            //{
+            //    iff++;
                 
-                if (flap == true)
-                {
-                    frm_paint(colour, picBox, temp);
-                    flap = false;
-                }
-                else
-                {
-                    frm_paint(Color.LightGray, picBox, temp);
-                    flap = true;
-                }
-            }
+            //    if (flap == true)
+            //    {
+            //        frm_paint(colour, picBox, temp);
+            //        flap = false;
+            //    }
+            //    else
+            //    {
+            //        frm_paint(Color.LightGray, picBox, temp);
+            //        flap = true;
+            //    }
+            //}
 
             //Wenn die Pictureboxen fertig geblinkt haben werden sie auf die Standardfarbe zurückgesetzt
+            //else
+            //{
+            tmr_colour.Stop();
+            tmr_colour.Enabled = false;
+            
+
+            //Wenn die richtig gelöst wurde, verschwinden die Pictureboxen
+            if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
+            {
+                select = "";
+                picBox.Image = null;
+                picBox.Enabled = false;
+                picBox.Visible = false;
+                temp.Image = null;
+                temp.Enabled = false;
+                temp.Visible = false;
+            }
+
             else
             {
-                tmr_colour.Stop();
-                tmr_colour.Enabled = false;
-                
-
-                //Wenn die richtig gelöst wurde, verschwinden die Pictureboxen
-                if (picBox.Tag.Equals(select) && picBox.Name != current.Name)
-                {
-                    select = "";
-                    picBox.Image = null;
-                    picBox.Enabled = false;
-                    picBox.Visible = false;
-                    temp.Image = null;
-                    temp.Enabled = false;
-                    temp.Visible = false;
-                }
-
-                foreach (PictureBox box in picboxes)
-                {
-                    box.Enabled = true;
-                    repaint(box);
-                }
-
-                frm_paint(Color.LightGray, picBox, temp);
-                repaint(picBox);
-                repaint(temp);
-
-                iff = 0;
+                current.Image = Resources_bg.background;
+                picBox.Image = Resources_bg.background;
             }
+
+            foreach (PictureBox box in picboxes)
+            {
+                box.Enabled = true;
+                repaint(box);
+            }
+
+            frm_paint(Color.LightGray, picBox, temp);
+            repaint(picBox);
+            repaint(temp);
+
+            //iff = 0;
+            //}
         }
 
         
@@ -347,10 +350,22 @@ namespace Memory
         // Die Timer werden aktiviert damit die ausgewählten Pictureboxen in einer Farbe blinken
         private void picboxblink(Color colour)
         {
-            frm_paint(colour, picBox, temp);
+            //frm_paint(colour, picBox, temp);
             tmr_colour.Enabled = true;
             tmr_colour.Start();
 
+        }
+
+        private void aufdecken(PictureBox Box)
+        {
+            foreach (KeyValuePair<string, Bitmap> pair in myDico)
+            {
+                if (pair.Key.Equals(Box.Tag))
+                {
+                    picture = pair.Value;
+                }
+            }
+            Box.Image = picture;
         }
     }
 }

@@ -165,7 +165,7 @@
             // 
             // tmr_colour
             // 
-            this.tmr_colour.Interval = 75;
+            this.tmr_colour.Interval = 500;
             this.tmr_colour.Tick += new System.EventHandler(this.tmr_colour_Tick);
             // 
             // picBox_01
@@ -382,7 +382,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(1428, 1181);
+            this.ClientSize = new System.Drawing.Size(1428, 1174);
             this.Controls.Add(this.lbl_solution);
             this.Controls.Add(this.pnl_menu);
             this.Controls.Add(this.picBox_01);
