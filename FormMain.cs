@@ -353,9 +353,9 @@ namespace Memory
             //frm_paint(colour, picBox, temp);
             tmr_colour.Enabled = true;
             tmr_colour.Start();
-
         }
 
+        //Deckt die Karten auf die angeklickt wurden
         private void aufdecken(PictureBox Box)
         {
             foreach (KeyValuePair<string, Bitmap> pair in myDico)
